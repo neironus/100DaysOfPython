@@ -40,16 +40,9 @@ def boat_exist(boats, row, col):
 
 #Remove a boat by his position
 def remove_boat(boats, row, col):
-  for i in range(len(boats)-1):
-    boat = boats[i]
-    if boat[0] == row and boat[1] == col:
-      boats.pop(i)
-      break
+  boats.remove([row, col])
 
 def position_already_played(board, row, col):
-  print row
-  print col
-  print board
   return board[row][col] == HIT_SYMBOL or board[row][col] == MISS_SYMBOL
 
 for x in range(SIZE_BOARD):
@@ -72,17 +65,17 @@ for turn in range(NUMBER_OF_TRY_ALLOWED):
 
   if boat_exist(boats, guess_row, guess_col):
     boats_find += 1
-    print "Congratulations! You sunk a battleship!. %d remaining" % int(NUMBER_BOATS - boats_find)
     remove_boat(boats, guess_row, guess_col)
     board[guess_row][guess_col] = HIT_SYMBOL
+    print "Congratulations! You sunk a battleship!. %d remaining" % int(NUMBER_BOATS - boats_find)
   else:
     if (guess_row < 0 or guess_row > SIZE_BOARD) or (guess_col < 0 or guess_col > SIZE_BOARD):
       print "Oops, that's not even in the ocean."
     elif position_already_played(board, guess_row, guess_col):
       print "You guessed that one already."
     else:
-      print "You missed my battleship!"
       board[guess_row][guess_col] = MISS_SYMBOL
+      print "You missed my battleship!"
 
     print_board(board)
     print " "
