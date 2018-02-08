@@ -16,3 +16,8 @@
 
     ⁻ Basic of Python
     - Battleship game
+##Day 4
+    Advance Battleship game
+
+    - Create boat of different size and direction (bottom or right).
+    - /!\ If a boat is hit it will remove the full boat.
