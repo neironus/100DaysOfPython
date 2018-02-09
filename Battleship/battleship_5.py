@@ -2,7 +2,7 @@ from random import randint
 
 SIZE_BOARD = 10
 NUMBER_OF_TRY_ALLOWED = 20
-NUMBER_BOATS = 1
+NUMBER_BOATS = 5
 HIT_SYMBOL = 'X'
 MISS_SYMBOL = 'M'
 
@@ -47,11 +47,11 @@ def boat_possible(row, col, direction, size):
 def boat_exist(boats, row, col, direction, size):
   if direction == 0: #boat going down
     for y in range(row, row + size):
-      if boat_part_exist(boats, y, col):
+      if boat_part_exist(boats, y, col) != -1:
         return True
   else: #boat going right
     for x in range(col, col + size):
-      if boat_part_exist(boats, row, x):
+      if boat_part_exist(boats, row, x) != -1:
         return True
 
   return False
@@ -59,41 +59,32 @@ def boat_exist(boats, row, col, direction, size):
 
 #Check if there is a part of a boat in the position
 def boat_part_exist(boats, row, col):
-  for boat in boats:
+  for index, boat in enumerate(boats):
     if(boat[2] == 0): #boat going down
       for y in range(boat[0], boat[0] + boat[3]):
         if(row == y and col == boat[1]):
-          return True
+          return index
     else: #boat going right
       for x in range(boat[1], boat[1] + boat[3]):
         if(row == boat[0] and col == x):
-          return True
+          return index
 
-  return False
+  return -1
 
 #Boat has been hit
 def boat_hit(boats, row, col):
   found = False
-  for i in range(len(boats)):
-    if(boats[i][2] == 0): #boat going down
-      for y in range(boats[i][0], boats[i][0] + boats[i][3]):
-        if(row == y and col == boats[i][1]):
-          found = True
-          break
-    else: #boat going right
-      for x in range(boats[i][1], boats[i][1] + boats[i][3]):
-        if(row == boats[i][0] and col == x):
-          found = True
-          break
 
-    if found:
-      boats[i][4] += 1
-      if boats[i][3] == boats[i][4]:
-        boats.pop(i)
-        return 10
-      else:
-        return 20
-      break
+  #Get the index of the boat hit
+  index_of_boat = boat_part_exist(boats, row, col)
+
+  if index_of_boat != -1:
+    boats[index_of_boat][4] += 1
+    if boats[index_of_boat][3] == boats[index_of_boat][4]:
+      boats.pop(index_of_boat)
+      return 10
+    else:
+      return 20
 
 def position_already_played(board, row, col):
   return board[row][col] == HIT_SYMBOL or board[row][col] == MISS_SYMBOL
@@ -124,7 +115,7 @@ for turn in range(NUMBER_OF_TRY_ALLOWED):
   else:
     if position_already_played(board, guess_row, guess_col):
       print "You guessed that one already."
-    elif boat_part_exist(boats, guess_row, guess_col):
+    elif boat_part_exist(boats, guess_row, guess_col) != -1:
       type = boat_hit(boats, guess_row, guess_col)
 
       if(type == 10): #sunk
