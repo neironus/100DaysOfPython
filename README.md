@@ -27,3 +27,4 @@
 
     - Remove the boat only when all of his parts has been hit.
     - Cleaning code
+d
