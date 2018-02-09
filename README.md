@@ -21,3 +21,8 @@
 
     - Create boat of different size and direction (bottom or right).
     - /!\ If a boat is hit it will remove the full boat.
+
+##Day 5
+    Advance Battleship game
+
+    - Remove the boat only when all of his parts has been hit.
