@@ -71,20 +71,17 @@ def boat_part_exist(boats, row, col):
 
   return -1
 
-#Boat has been hit
-def boat_hit(boats, row, col):
-  found = False
-
-  #Get the index of the boat hit
-  index_of_boat = boat_part_exist(boats, row, col)
-
-  if index_of_boat != -1:
-    boats[index_of_boat][4] += 1
-    if boats[index_of_boat][3] == boats[index_of_boat][4]:
-      boats.pop(index_of_boat)
-      return 10
+#Boat has been sunked
+def boat_sunk(boat_index):
+  if boat_index != -1:
+    boats[boat_index][4] += 1
+    if boats[boat_index][3] == boats[boat_index][4]:
+      boats.pop(boat_index)
+      return True
     else:
-      return 20
+      return False
+
+  return False
 
 def position_already_played(board, row, col):
   return board[row][col] == HIT_SYMBOL or board[row][col] == MISS_SYMBOL
@@ -115,19 +112,21 @@ for turn in range(NUMBER_OF_TRY_ALLOWED):
   else:
     if position_already_played(board, guess_row, guess_col):
       print "You guessed that one already."
-    elif boat_part_exist(boats, guess_row, guess_col) != -1:
-      type = boat_hit(boats, guess_row, guess_col)
-
-      if(type == 10): #sunk
-        board[guess_row][guess_col] = HIT_SYMBOL
-        boats_find += 1
-        print "Congratulations! You sunk a battleship!. %d remaining" % int(NUMBER_BOATS - boats_find)
-      else: #hit
-        board[guess_row][guess_col] = HIT_SYMBOL
-        print "Boat hit"
     else:
-      board[guess_row][guess_col] = MISS_SYMBOL
-      print "You missed my battleship!"
+      boat_index = boat_part_exist(boats, guess_row, guess_col)
+
+      #If boat exist
+      if (boat_index != -1):
+        if boat_sunk(boat_index):
+          board[guess_row][guess_col] = HIT_SYMBOL
+          boats_find += 1
+          print "Congratulations! You sunk a battleship!. %d remaining" % int(NUMBER_BOATS - boats_find)
+        else: #hit
+          board[guess_row][guess_col] = HIT_SYMBOL
+          print "Boat hit"
+      else:
+        board[guess_row][guess_col] = MISS_SYMBOL
+        print "You missed my battleship!"
 
     print_board(board)
     print " "
