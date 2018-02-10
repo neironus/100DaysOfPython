@@ -29,3 +29,7 @@
     - Cleaning code
 
 ### Day 6
+    CodeAcademy.com
+    - Loops
+    - Practice
+
