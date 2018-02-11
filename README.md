@@ -33,3 +33,18 @@
     - Loops
     - Practice
 
+### Day 7
+    Videos / Twitch Stream
+
+
+## Useful links
+    - http://nullege.com
+    - https://github.com/chriskiehl/Gooey
+    - http://pyvideo.org
+    - https://github.com/faif/python-patterns
+    - https://github.com/norvig/pytudes
+    - http://openbookproject.net/py4fun
+    - https://github.com/satwikkansal/wtfPython
+    - http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/
+
+    Thanks to r_you_practing_ahegao_q_
