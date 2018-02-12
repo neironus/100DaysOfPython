@@ -36,6 +36,11 @@
 ### Day 7
     Videos / Twitch Stream
 
+### Day 8
+    CodeAcademy.com
+    - Bitwise
+    - Lambda
+    - Slicing list
 
 ## Useful links
     - http://nullege.com
