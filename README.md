@@ -42,6 +42,11 @@
     - Lambda
     - Slicing list
 
+### Day 9
+    CodeAcademy.com
+    - Class
+    - File Input/Output
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
@@ -52,4 +57,4 @@
 [https://github.com/satwikkansal/wtfPython](https://github.com/satwikkansal/wtfPython)
 [http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/)
 
-    Thanks to r_you_practing_ahegao_q_
+Thanks to [http://twitch.tv/r_you_practing_ahegao_q_](r_you_practing_ahegao_q_)
