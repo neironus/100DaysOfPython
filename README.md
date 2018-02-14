@@ -48,6 +48,9 @@
     - File Input/Output
 
 ### Day 10
+    Class
+    - Convert boat into a class
+    - Convert the game to a class
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
