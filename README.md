@@ -56,6 +56,7 @@
     CodeWars
         - Playing with digits
         - Square digit
+        - Take a 10 minute walk
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
