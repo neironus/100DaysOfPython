@@ -52,6 +52,10 @@
     - Convert boat into a class
     - Convert the game to a class
 
+### Day 11
+    CodeWars
+        - Playing with digits
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
