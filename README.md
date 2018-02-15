@@ -58,6 +58,7 @@
         - Square digit
         - Take a 10 minute walk
         - Your order, please
+        - Build a pile of cubes
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
