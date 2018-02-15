@@ -55,6 +55,7 @@
 ### Day 11
     CodeWars
         - Playing with digits
+        - Square digit
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
