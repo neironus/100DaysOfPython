@@ -70,6 +70,7 @@
         - Bigger_price
         - Most frequent
         - Easy unpack
+        - Solver the angle of a triangle
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
