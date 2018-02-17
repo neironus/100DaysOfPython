@@ -67,6 +67,7 @@
 ### Day 13
     CheckIO
         - Popular_words
+        - Bigger_price
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
