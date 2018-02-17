@@ -68,6 +68,8 @@
     CheckIO
         - Popular_words
         - Bigger_price
+        - Most frequent
+        - Easy unpack
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
