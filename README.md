@@ -74,6 +74,7 @@
 
 ### Day 14
     CheckIO
+        - Solve long repeat
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
