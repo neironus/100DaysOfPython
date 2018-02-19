@@ -79,6 +79,7 @@
 
 ### Day 15
     CheckIO
+        - Correct sentence
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
