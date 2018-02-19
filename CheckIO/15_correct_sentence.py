@@ -8,6 +8,9 @@ def correct_sentence(text: str) -> str:
     if text[len(text)-1] != '.':
         text += '.'
 
+    #clever solution
+    # return text.capitalize() + '.' * (not text.endswith('.'))
+
     return text
 
 
