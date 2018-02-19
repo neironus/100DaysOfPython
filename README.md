@@ -80,6 +80,7 @@
 ### Day 15
     CheckIO
         - Correct sentence
+        - Friendly number
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
