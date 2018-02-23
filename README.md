@@ -87,6 +87,12 @@
         - Brackets
         - Hamming distance
 
+### Day 17
+    CheckIO
+        - Find sequence
+        - Restricted sum
+        - The longest palindromic
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
