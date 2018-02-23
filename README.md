@@ -82,6 +82,11 @@
         - Correct sentence
         - Friendly number
 
+### Day 16
+    CheckIO
+        - Brackets
+        - Hamming distance
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
