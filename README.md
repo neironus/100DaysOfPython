@@ -70,11 +70,11 @@
         - Bigger_price
         - Most frequent
         - Easy unpack
-        - Solver the angle of a triangle
+        - The angle of a triangle
 
 ### Day 14
     CheckIO
-        - Solve long repeat
+        - Long repeat
         - All the same
 
 ### Day 15
