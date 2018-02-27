@@ -96,6 +96,9 @@
 ### Day 18
     Empire of code
 
+### Day 19
+    Fun with twitch
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
