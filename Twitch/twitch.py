@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 import config as cfg
+from db import DB
 import urllib2, json
+
+d = DB()
 
 channels = ['woowakgood', 'lexveldhuis', 'p4wnyhof']
 
@@ -13,3 +16,4 @@ for c in channels:
 
     if content.get('stream') and content.get('stream').get('viewers'):
         print "%s - %d" % (c, content.get('stream').get('viewers'))
+        d.insert('viewers', {'user': c, 'viewers': content.get('stream').get('viewers')})
