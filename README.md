@@ -93,6 +93,9 @@
         - Restricted sum
         - The longest palindromic
 
+### Day 18
+    Empire of code
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
