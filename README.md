@@ -105,6 +105,9 @@
 ### Day 21
     Playing with [http://snips.ai](Snips), installation and configuration
 
+### Day 22
+    Playing with [http://snips.ai](Snips), installation and configuration
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
