@@ -106,7 +106,12 @@
     Playing with [http://snips.ai](Snips), installation and configuration
 
 ### Day 22
-    Playing with [http://snips.ai](Snips), installation and configuration
+    Datetime by talkpythons/pybites
+
+### Day 23
+    Collections module, NamedTuples/DefaultDicts
+    Challenge 13 of PyBites
+
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
