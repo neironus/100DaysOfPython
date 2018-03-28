@@ -112,6 +112,17 @@
     Collections module, NamedTuples/DefaultDicts
     Challenge 13 of PyBites
 
+### Day 24
+    Challenge 13 of PyBites
+    Print Format
+
+### Day 25
+    Lambda, List Comprehensions
+
+### Day 26
+    Bites 21 of PyBites
+    Data Structure
+    Generators
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
@@ -122,5 +133,6 @@
 [http://openbookproject.net/py4fun](http://openbookproject.net/py4fun)
 [https://github.com/satwikkansal/wtfPython](https://github.com/satwikkansal/wtfPython)
 [http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/)
+[https://codechalleng.es](https://codechalleng.es)
 
 Thanks to [http://twitch.tv/r_you_practing_ahegao_q_](r_you_practing_ahegao_q_)
