@@ -14,8 +14,7 @@ class Game(object):
         self.boats_number = boats_number
         self.turn_max = turn_max
 
-        for x in range(board_size):
-            self.board.append(["O"] * board_size)
+        self.board = [["O"] * board_size for x in range(board_size)]
 
         #Create x boats
         for i in range(boats_number):
@@ -46,11 +45,7 @@ class Game(object):
 
     #check if a boat exist at a coord
     def boat_exist(self, row, col):
-        for boat in self.boats:
-            if boat.have_a_part_at(row, col):
-                return True
-        else:
-            return False
+        return [boat for boat in self.boats if boat.have_a_part_at(row, col)]
 
     #create a boat
     def boat_create(self):
@@ -74,7 +69,7 @@ class Game(object):
 
     #Does the position has already been played ?
     def position_already_played(self, row, col):
-        return self.board[row][col] != 'O' #Not hit or miss
+        return self.board[row][col] != 'O' #Still default symbol
 
     #Play the game
     def play(self):
@@ -144,17 +139,9 @@ class Boat(object):
     #Display a part of the boat is a the coord
     def have_a_part_at(self, row, col):
         if self.direction == 0: #boat going down
-            for y in range(self.row, self.row + self.size):
-                if y == row and col == self.col:
-                    return True
-            else:
-                return False
+            return [True for y in range(self.row, self.row + self.size) if y == row and col == self.col]
         else: #boat going right
-            for x in range(self.col, self.col + self.size):
-                if row == self.row and x == col:
-                    return True
-            else:
-                return False
+            return [True for x in range(self.col, self.col + self.size) if row == self.row and x == col]
 
     #The boat has been hit
     def hit(self):
@@ -163,7 +150,6 @@ class Boat(object):
     #Is the boat sunk?
     def sunk(self):
         return self.count_hit == self.size
-
 
 game = Game(10, 5, 20)
 game.play()
