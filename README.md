@@ -123,6 +123,11 @@
     Bites 21 of PyBites
     Data Structure
     Generators
+    Refactor BattleShip
+
+### Day 27
+    Refactor CheckIO
+
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
