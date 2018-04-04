@@ -128,6 +128,8 @@
 ### Day 27
     Refactor CheckIO
 
+### Day 28
+    Videos about pytest (TalkPython)
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
