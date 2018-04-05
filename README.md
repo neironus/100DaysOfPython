@@ -131,6 +131,9 @@
 ### Day 28
     Videos about pytest (TalkPython)
 
+### Day 29
+    Videos/Code about pytest
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
