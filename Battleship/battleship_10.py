@@ -164,6 +164,6 @@ class Boat(object):
     def sunk(self):
         return self.count_hit == self.size
 
-
-game = Game(10, 5, 20)
-game.play()
+if __name__ == '__main__':
+    game = Game(10, 5, 20)
+    game.play()
