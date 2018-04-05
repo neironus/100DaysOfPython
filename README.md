@@ -133,6 +133,7 @@
 
 ### Day 29
     Videos/Code about pytest
+    PyTest Battleship
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
