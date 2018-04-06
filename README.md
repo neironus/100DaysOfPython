@@ -137,6 +137,7 @@
 
 ### Day 30
     Pytest fixture
+    Classes with Rock/Paper/Scissor game
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
