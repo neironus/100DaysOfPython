@@ -12,7 +12,7 @@ class Roll:
 
     def __init__(self, name, defeated_by):
         self.name = name
-        self.defeated_by = defeated_by
+        self.defeated_by = sorted(defeated_by)
 
     def can_defeat(self, roll):
         return self.name in roll.defeated_by
