@@ -63,27 +63,33 @@ def game_loop(player1, player2, rolls):
         except ValueError as ve:
             continue
 
-        print("p1 roll: {} - p2 roll : {}".format(p1_roll.name, p2_roll.name))
-        if(p1_roll == p2_roll):
-            print('Same roll')
-        else:
-            text = "{} won. He have now {} points"
-            if (p1_roll.can_defeat(p2_roll)):
-                player1.add_point()
-                print(text.format(player1.name, player1.points))
-            else:
-                player2.add_point()
-                print(text.format(player2.name, player2.points))
         count += 1
+        check_result(p1_roll, p2_roll, player1, player2)
     else:
-        print('\n\n')
-        text = "{} with {}points beats {} and his {}points"
-        if (player1.points > player2.points):
-            print(text.format(player1.name, player1.points, player2.name, player2.points))
-        elif (player2.points > player1.points):
-            print(text.format(player2.name, player2.points, player1.name, player1.points))
+        finish_game(player1, player2)
+
+def check_result(p1_roll, p2_roll, player1, player2):
+    print("{} roll: {} - {} roll : {}".format(player1.name, p1_roll.name, player2.name, p2_roll.name))
+    if(p1_roll == p2_roll):
+        print('Same roll')
+    else:
+        text = "{} won. He have now {} points"
+        if (p1_roll.can_defeat(p2_roll)):
+            player1.add_point()
+            print(text.format(player1.name, player1.points))
         else:
-            print("It's a draw.")
+            player2.add_point()
+            print(text.format(player2.name, player2.points))
+
+def finish_game(player1, player2):
+    print('\n\n')
+    text = "{} with {}points beats {} and his {}points"
+    if (player1.points > player2.points):
+        print(text.format(player1.name, player1.points, player2.name, player2.points))
+    elif (player2.points > player1.points):
+        print(text.format(player2.name, player2.points, player1.name, player1.points))
+    else:
+        print("It's a draw.")
 
 if __name__ == '__main__':
     main()
