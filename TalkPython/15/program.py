@@ -35,8 +35,7 @@ def ask_for_roll(rolls):
         if (0 <= roll <= len(rolls)-1):
             return rolls[roll]
         else:
-            print('> Invalid choice')
-            return ask_for_roll(rolls)
+            raise ValueError('Value must be include between 0 and {}'.format(len(rolls)))
 
     except Exception as e:
         print('> Invalid choice')
