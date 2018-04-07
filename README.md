@@ -139,6 +139,10 @@
     Pytest fixture
     Classes with Rock/Paper/Scissor game
 
+### Day 31
+    Advanced Rock/Paper/Scissor with 15 options.
+    Read CSV
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
