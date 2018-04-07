@@ -32,14 +32,13 @@ def ask_for_roll(rolls):
 
     try:
         roll = int(roll)
-        if (0 <= roll <= len(rolls)-1):
-            return rolls[roll]
-        else:
-            raise ValueError('Value must be include between 0 and {}'.format(len(rolls)))
+    except ValueError:
+        raise ValueError('Should be a number')
 
-    except Exception as e:
-        print('> Invalid choice')
-        return ask_for_roll(rolls)
+    if roll not in range(0, len(rolls)):
+        raise ValueError('Value must be include between 0 and {}'.format(len(rolls)))
+
+    return rolls[roll]
 
 def get_players_name():
     return input("Enter your name ! \n")
@@ -58,7 +57,11 @@ def game_loop(player1, player2, rolls):
     count = 1
     while count < 3:
         p2_roll = random.choice(rolls)
-        p1_roll = ask_for_roll(rolls)
+
+        try:
+            p1_roll = ask_for_roll(rolls)
+        except ValueError as ve:
+            continue
 
         print("p1 roll: {} - p2 roll : {}".format(p1_roll.name, p2_roll.name))
         if(p1_roll == p2_roll):
