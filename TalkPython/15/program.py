@@ -3,7 +3,7 @@ import random, csv
 
 def print_header():
     print('####################################')
-    print('#### Rock - Paper - Scissor Game ###')
+    print('#### Rock - Paper - Scissor and 12 others possibilities GAME ###')
     print('#################################### \n')
 
 def read_rolls():
