@@ -1,20 +1,19 @@
 from actors import Roll, Player
 import random, csv
 
-rolls = []
-
 def print_header():
     print('####################################')
     print('#### Rock - Paper - Scissor Game ###')
     print('#################################### \n')
 
 def read_rolls():
+    rolls = []
     with open('battle-table.csv', 'r') as fin:
         reader = csv.DictReader(fin)
         for row in reader:
-            add_roll(row)
+            rolls.append(add_roll(row))
 
-        rolls.sort(key = lambda x: x.name)
+        return sorted(rolls, key = lambda x: x.name)
 
 def add_roll(row):
     name = row['Attacker']
@@ -22,9 +21,9 @@ def add_roll(row):
     del row[name]
 
     defeated_by = [x for x,y in row.items() if y == 'lose']
-    rolls.append(Roll(name, defeated_by))
+    return Roll(name, defeated_by)
 
-def ask_for_roll():
+def ask_for_roll(rolls):
     print('\n')
     print('Options :')
     for i,r in enumerate(rolls):
@@ -37,30 +36,30 @@ def ask_for_roll():
             return rolls[roll]
         else:
             print('> Invalid choice')
-            return ask_for_roll()
+            return ask_for_roll(rolls)
 
     except Exception as e:
         print('> Invalid choice')
-        return ask_for_roll()
+        return ask_for_roll(rolls)
 
 def get_players_name():
     return input("Enter your name ! \n")
 
 def main():
     print_header()
-    read_rolls()
+    rolls = read_rolls()
 
     name = get_players_name()
     player1 = Player(name)
     player2 = Player("computer")
 
-    game_loop(player1, player2)
+    game_loop(player1, player2, rolls)
 
-def game_loop(player1, player2):
+def game_loop(player1, player2, rolls):
     count = 1
     while count < 3:
         p2_roll = random.choice(rolls)
-        p1_roll = ask_for_roll()
+        p1_roll = ask_for_roll(rolls)
 
         print("p1 roll: {} - p2 roll : {}".format(p1_roll.name, p2_roll.name))
         if(p1_roll == p2_roll):
