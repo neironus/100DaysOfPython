@@ -3,7 +3,7 @@ class Player:
         self.name = name
         self.points = 0
 
-    def get_point(self):
+    def add_point(self):
         self.points += 1
 
 class Roll:

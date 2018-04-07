@@ -66,10 +66,10 @@ def game_loop(player1, player2, rolls):
         else:
             text = "{} won. He have now {} points"
             if (p1_roll.can_defeat(p2_roll)):
-                player1.get_point()
+                player1.add_point()
                 print(text.format(player1.name, player1.points))
             else:
-                player2.get_point()
+                player2.add_point()
                 print(text.format(player2.name, player2.points))
         count += 1
     else:
