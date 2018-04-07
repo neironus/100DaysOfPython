@@ -142,6 +142,7 @@
 ### Day 31
     Advanced Rock/Paper/Scissor with 15 options.
     Read CSV
+    Test Advanced Rock/Paper/scissor
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
