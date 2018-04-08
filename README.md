@@ -144,6 +144,10 @@
     Read CSV
     Test Advanced Rock/Paper/scissor
 
+### Day 32
+    Videos about Generators/List comprehensions
+    Articles
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
