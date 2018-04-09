@@ -156,6 +156,7 @@
     Traffic lights using Itertools
     Bites 64 of PyBites - itertools.zip_longest
     Bites 17 of PyBites - iterools.permutations/combinations
+    Bites 65 of PyBites - iterools.permutations/generators/set
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
