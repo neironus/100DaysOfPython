@@ -149,7 +149,8 @@
     Articles
 
 ### Day 33
-    Bites 5 of PyBites
+    Bites 5 of PyBites - List Comprehensions
+    Bites 26 of PyBites - Dictionary comprehension
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
