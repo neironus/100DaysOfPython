@@ -148,6 +148,9 @@
     Videos about Generators/List comprehensions
     Articles
 
+### Day 33
+    Bites 5 of PyBites
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
