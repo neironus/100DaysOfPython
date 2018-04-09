@@ -155,6 +155,7 @@
     Videos about Itertools (cycle, product, combinations and permurations)
     Traffic lights using Itertools
     Bites 64 of PyBites - itertools.zip_longest
+    Bites 17 of PyBites - iterools.permutations/combinations
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
