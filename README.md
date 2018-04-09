@@ -152,6 +152,8 @@
     Bites 5 of PyBites - List Comprehensions
     Bites 26 of PyBites - Dictionary comprehension
     Challenges 11 of PyBites - Begin dictonary use
+    Videos about Itertools (cycle, product, combinations and permurations)
+    Traffic lights using Itertools
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
