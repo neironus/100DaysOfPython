@@ -154,6 +154,7 @@
     Challenges 11 of PyBites - Begin dictonary use
     Videos about Itertools (cycle, product, combinations and permurations)
     Traffic lights using Itertools
+    Bites 64 of PyBites - itertools.zip_longest
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
