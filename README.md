@@ -158,6 +158,10 @@
     Bites 17 of PyBites - iterools.permutations/combinations
     Bites 65 of PyBites - iterools.permutations/generators/set
 
+### Day 34
+    Decorator
+    Bites 22 of PyBites - Decorator with arguments
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
