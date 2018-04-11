@@ -1,7 +1,7 @@
 from unittest.mock import patch
 import pytest
 
-from battleship_35 import Game, Boat
+from actors import Game, Boat
 
 
 @pytest.fixture()
