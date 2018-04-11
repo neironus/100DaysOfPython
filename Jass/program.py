@@ -3,8 +3,6 @@ from actors.player import Player
 
 
 def main():
-    game = Game()
-    print(game.t())
     pass
 
 
