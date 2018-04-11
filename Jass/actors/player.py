@@ -5,7 +5,7 @@ class Player(object):
         self._name = name
         self._hand = []
 
-    #name
+    # name
     @property
     def name(self):
         return self._name
@@ -14,11 +14,11 @@ class Player(object):
     def name(self, name):
         self._name = name
 
-    #hand
+    # hand
     @property
     def hand(self):
         return self._hand
 
     @hand.setter
     def hand(self, hand):
-        self._hand = hand
+        self._hand = sorted(hand, key=lambda x: (x.color, x.rank))
