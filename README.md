@@ -162,6 +162,9 @@
     Decorator
     Bites 22 of PyBites - Decorator with arguments
 
+### Day 35
+    Pep8 - Style Guide
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
