@@ -95,12 +95,12 @@ def test_win_game(inp, capfd, game):
 def test_boat_exist():
     boat = Boat(0, 0, 0, 2)  # Boat going down
     # good
-    assert boat.have_a_part_at(0, 0) == [True]
-    assert boat.have_a_part_at(1, 0) == [True]
+    assert boat.have_a_part_at(0, 0)
+    assert boat.have_a_part_at(1, 0)
     # size is only 2
-    assert boat.have_a_part_at(2, 0) == []
+    assert not boat.have_a_part_at(2, 0)
     # not the good direction
-    assert boat.have_a_part_at(0, 1) == []
+    assert not boat.have_a_part_at(0, 1)
 
 
 def test_boat_hit():

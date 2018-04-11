@@ -165,6 +165,7 @@
 ### Day 35
     Pep8 - Style Guide
     Error handling
+    @property Decorator
 
 ## Useful links
 [http://nullege.com](http://nullege.com)

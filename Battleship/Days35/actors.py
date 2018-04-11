@@ -25,6 +25,10 @@ class Game(object):
         return 'Current turn: {}, Boats finds {}'.format(
             self.turn_current, self.boats_finds)
 
+    @property
+    def boat_alive(self):
+        return self.boats_number - self.boats_finds
+
     # Random a row
     def random_row(self):
         return randint(0, len(self.board) - 1)
@@ -118,9 +122,7 @@ class Game(object):
                             self.boats_finds += 1
                             print(
                                 "Congratulations! You sunk a battleship!. "
-                                "{} remaining".format(
-                                    self.boats_number - self.boats_finds
-                                )
+                                "{} remaining".format(self.boat_alive)
                             )
                         else:
                             self.board[guess_row][guess_col] = self.symbol_hit
@@ -153,18 +155,18 @@ class Boat(object):
             self.row, self.col, self.direction, self.size, self.count_hit
         )
 
-    # Display a part of the boat is a the coord
+    # Return if the boat have a part in row/col
     def have_a_part_at(self, row, col):
         if self.direction == 0:  # boat going down
-            return [
-                True for y in range(self.row, self.row + self.size)
-                if y == row and col == self.col
-            ]
+            for y in range(self.row, self.row + self.size):
+                if (y == row and col == self.col):
+                    return True
         else:  # boat going right
-            return [
-                True for x in range(self.col, self.col + self.size)
-                if row == self.row and x == col
-            ]
+            for x in range(self.col, self.col + self.size):
+                if (row == self.row and x == col):
+                    return True
+
+        return False
 
     # The boat has been hit
     def hit(self):
