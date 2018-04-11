@@ -18,16 +18,13 @@ class Round(object):
         deck = self.create_deck()
 
         for i, player in enumerate(self.players):
-            player.hand = deck[i * 9:i * 9 + 9]
-
-        for p in self.players:
-            print(p.hand)
+            player.hand = deck[i * 9:i * 9 + 9:]
 
     # Create a deck
     def create_deck(self):
         deck = []
-        # Red = hearts, Black = Spades, Green = Clubs, Blue = Diamonds
-        colors = 'R B G B'.split()
+        # Red = hearts, Black = Spades, Green = Clubs, Yellow = Diamonds
+        colors = 'R B G Y'.split()
         ranks = '6 7 8 9 10 J Q K A'.split()
 
         for color in colors:
