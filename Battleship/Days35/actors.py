@@ -89,9 +89,15 @@ class Game(object):
     # New turn
     def turn_new(self):
         print("Turn", self.turn_current)
+
+        try:
+            guess_row = int(input("Guess Row: "))
+            guess_col = int(input("Guess Col: "))
+        except Exception:
+            print('\n> THE DATA ENTERED IS NOT VALID \n')
+            return
+
         self.turn_current += 1
-        guess_row = int(input("Guess Row: "))
-        guess_col = int(input("Guess Col: "))
 
         # Dont use user input
         # guess_row = random_row(board)
