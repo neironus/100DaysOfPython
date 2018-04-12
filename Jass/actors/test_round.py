@@ -13,7 +13,7 @@ def players():
 def test_deal_cards(players):
     rnd = Round(players)
 
-    deck = rnd.create_deck()
+    deck = rnd._create_deck()
     rnd.deal_players_cards(deck)
     assert len(players[0].hand) == 9
     # test all hand are different

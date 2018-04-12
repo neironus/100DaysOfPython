@@ -11,17 +11,17 @@ class Round(object):
 
     # Create a new round
     def new_round(self):
-        self.deal_players_cards(self.create_deck)
+        self.deal_players_cards(self._create_deck)
 
     # Deal players cards
     def deal_players_cards(self, deck):
-        deck = self.create_deck()
+        deck = self._create_deck()
 
         for i, player in enumerate(self.players):
             player.hand = deck[i * 9:i * 9 + 9:]
 
     # Create a deck
-    def create_deck(self):
+    def _create_deck(self):
         deck = []
         colors = 'H D C S'.split()
         ranks = '6 7 8 9 10 J Q K A'.split()
