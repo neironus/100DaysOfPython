@@ -23,8 +23,7 @@ class Round(object):
     # Create a deck
     def create_deck(self):
         deck = []
-        # Red = hearts, Black = Spades, Green = Clubs, Yellow = Diamonds
-        colors = 'R B G Y'.split()
+        colors = 'H D C S'.split()
         ranks = '6 7 8 9 10 J Q K A'.split()
 
         for color in colors:

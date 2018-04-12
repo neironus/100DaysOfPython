@@ -1,5 +1,6 @@
-import sys
 from actors.round import Round
+
+import sys
 
 
 class Game(object):
