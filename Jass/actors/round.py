@@ -6,8 +6,9 @@ import random
 class Round(object):
 
     # Init
-    def __init__(self, players):
-        self.players = players
+    def __init__(self, roundNumber, players):
+        self.roundNumber = roundNumber
+        self.players = itertools.cycle(players)
 
     # Create a new round
     def new_round(self):

@@ -21,6 +21,6 @@ class Game(object):
 
     # create a new round
     def new_round(self):
-        rnd = Round(self.players)
+        rnd = Round(len(self.rounds), self.players)
         self.rounds.append(rnd)
         rnd.new_round()

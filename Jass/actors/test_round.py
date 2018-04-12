@@ -11,7 +11,7 @@ def players():
 
 # Test deal cards
 def test_deal_cards(players):
-    rnd = Round(players)
+    rnd = Round(0, players)
 
     deck = rnd._create_deck()
     rnd.deal_players_cards(deck)
