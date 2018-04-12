@@ -5,8 +5,8 @@ class Card(object):
         self._color = color
         self._rank = rank
 
-    # Representation of card
-    def __repr__(self):
+    # String of card
+    def __str__(self):
         return 'Color {} - Rank {}'.format(self.color, self.symbol)
 
     # color GET
