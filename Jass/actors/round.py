@@ -38,6 +38,7 @@ class Round(object):
 
         return deck
 
+    # Turn order, first player go to the end
     def _turn_order(self):
         player = self.players.pop(0)
         self.players.append(player)
