@@ -1,3 +1,4 @@
+import sys
 from actors.round import Round
 
 
@@ -10,12 +11,14 @@ class Game(object):
         if (len(players) == 4):
             self.players = players
         else:
-            return 'The numbers of players is incorrect'
+            print('They should be 4 players. Not more not less')
+            sys.exit()
 
     # create a new game
     def new_game(self):
         self.new_round()
 
+    # create a new round
     def new_round(self):
         rnd = Round(self.players)
         self.rounds.append(rnd)
