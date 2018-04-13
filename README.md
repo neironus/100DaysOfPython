@@ -168,6 +168,12 @@
     @property Decorator
     Jass
 
+### Day 36
+    Jass
+
+### Day 37
+    Regex
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
