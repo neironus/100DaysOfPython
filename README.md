@@ -174,6 +174,10 @@
 ### Day 37
     Regex
 
+### Day 38
+    Regex
+    Bites 2 of PyBites - Regex
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
