@@ -177,6 +177,7 @@
 ### Day 38
     Regex
     Bites 2 of PyBites - Regex
+    Challenges 42 of PyBites - Regex
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
