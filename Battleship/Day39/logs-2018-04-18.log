@@ -1,0 +1,31 @@
+[2018-04-18 15:15:43.830402] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-18 15:15:43.830605] INFO: Game: Create new game
+[2018-04-18 15:21:31.884053] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-18 15:21:31.884281] INFO: Game: Create new game
+[2018-04-18 15:21:44.581907] ERROR: Game: Oops, that's not even in the ocean.
+[2018-04-18 15:33:16.328130] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-18 15:33:16.328311] INFO: Game: Create new game
+[2018-04-18 15:33:17.845638] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:19.005410] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:24.131757] ERROR: Game: You guessed that one already.
+[2018-04-18 15:33:26.195042] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:27.170695] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:28.490618] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:29.674076] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:30.777849] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:32.145310] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:33.193111] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:34.128755] ERROR: Game: You missed my battleship!
+[2018-04-18 15:33:35.728406] ERROR: Game: You guessed that one already.
+[2018-04-18 15:34:42.290981] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-18 15:34:42.291225] INFO: Game: Create new game
+[2018-04-18 15:34:44.427026] ERROR: Game: You missed my battleship!
+[2018-04-18 15:34:46.202436] ERROR: Game: You missed my battleship!
+[2018-04-18 15:34:47.402203] INFO: Boat: Boat sunk [ 2-2 0 2 1]
+[2018-04-18 15:34:47.402533] INFO: Game: Boat hit
+[2018-04-18 15:34:50.649354] ERROR: Game: You missed my battleship!
+[2018-04-18 15:34:53.320218] ERROR: Game: You missed my battleship!
+[2018-04-18 15:35:00.702414] ERROR: Game: You missed my battleship!
+[2018-04-18 15:35:03.381343] ERROR: Game: You missed my battleship!
+[2018-04-18 15:35:08.771757] INFO: Boat: Boat sunk [ 2-2 0 2 2]
+[2018-04-18 15:35:08.772114] ERROR: Game: Boat sunk 4 remaining
