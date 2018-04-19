@@ -196,5 +196,6 @@
 [http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/)
 [https://codechalleng.es](https://codechalleng.es)
 [https://www.programiz.com/python-programming/set](Set operations)
+[https://www.youtube.com/watch?v=OSGv2VnC0go](Transforming Code into Beautiful, Idiomatic Python)
 
 Thanks to [http://twitch.tv/r_you_practing_ahegao_q_](r_you_practing_ahegao_q_)
