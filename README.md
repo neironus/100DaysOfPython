@@ -182,6 +182,9 @@
 ### Day 39
     Logging with LogBook
 
+### Day 40
+    Refactoring and Pythonic code
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
