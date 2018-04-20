@@ -185,6 +185,9 @@
 ### Day 40
     Refactoring and Pythonic code
 
+### Day 41
+    EFF passphrase dice generator
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
