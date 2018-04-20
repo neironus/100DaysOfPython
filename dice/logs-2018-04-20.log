@@ -1,0 +1,72 @@
+[2018-04-20 13:39:23.271134] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:39:32.977289] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:40:40.784788] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:40:40.785018] ERROR: App: ./eff_large_wordlisdt.txt File not found
+[2018-04-20 13:40:52.306155] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:40:52.306403] ERROR: App: ./eff_large_wordlisdt.txt File not found
+[2018-04-20 13:41:09.594073] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:41:09.594486] ERROR: App: ./eff_large_wordlisdt.txt File not found
+[2018-04-20 13:41:31.921698] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:41:40.108540] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:41:40.109659] ERROR: App: list index out of range
+Traceback (most recent call last):
+  File "program.py", line 17, in get_list_words
+    words.append(Word(s[0], s[1]))
+IndexError: list index out of range
+[2018-04-20 13:42:27.119833] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:42:27.120714] ERROR: App: File is not correct. Index out of range error.
+[2018-04-20 13:42:48.883471] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:42:48.884423] ERROR: App: File is not correct. Index out of range error.
+[2018-04-20 13:43:10.772193] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:43:51.051091] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:44:04.070911] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:44:04.071114] ERROR: App: ./eff_large_wordlist.etxt File not found
+[2018-04-20 13:48:37.825725] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:48:45.684550] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:48:56.272702] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:49:00.695938] INFO: App: Invalid choice 1
+[2018-04-20 13:49:12.575721] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:50:21.399724] INFO: App: Invalid choice [a
+[2018-04-20 13:50:26.829754] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:51:06.944894] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:57:59.539231] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:58:17.596356] INFO: App: Invalid choice [a
+[2018-04-20 13:58:19.292719] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:58:43.899605] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:58:53.758608] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 13:59:12.947038] INFO: App: Invalid choice [a
+[2018-04-20 13:59:14.713736] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:00:54.259727] INFO: App: Invalid choice [a
+[2018-04-20 14:00:55.890364] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:01:29.002046] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:01:34.057331] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:02:14.706149] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:02:48.542018] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:04:25.148114] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:04:38.959773] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:04:51.276104] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:05:07.639028] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:05:44.616642] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:05:51.174821] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:06:43.615899] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:11:36.639700] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:12:31.210463] ERROR: App: Invalid datas
+[2018-04-20 14:12:34.033652] ERROR: App: Invalid datas
+[2018-04-20 14:12:40.999417] ERROR: App: Invalid datas
+[2018-04-20 14:12:45.230173] ERROR: App: Invalid datas
+[2018-04-20 14:12:56.026481] ERROR: App: Invalid datas
+[2018-04-20 14:13:53.305275] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:13:56.128061] ERROR: App: Invalid datas - 123456
+[2018-04-20 14:14:10.626994] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:14:11.595595] ERROR: App: as Is not a valid choice.
+[2018-04-20 14:14:26.887651] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:14:30.821664] ERROR: App: 123456 Is not a valid choice.
+[2018-04-20 14:14:39.936013] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:14:41.298185] ERROR: App: 123456 Is not a valid choice.
+[2018-04-20 14:14:50.081396] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:15:15.182723] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:16:31.637047] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:16:33.687455] ERROR: App: 123456 - Is not a valid choice.
+[2018-04-20 14:16:58.840301] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:19:36.898513] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
+[2018-04-20 14:20:25.139244] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: logs.log
