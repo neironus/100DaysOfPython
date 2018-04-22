@@ -6,6 +6,7 @@ LIST_WORDS = './eff_large_wordlist.txt'
 app_log = logbook.Logger('App')
 Word = namedtuple('Word', 'code, word')
 
+
 def init_logging():
     level = logbook.TRACE
 
@@ -53,7 +54,7 @@ def print_word(word):
 
 def find_words(words, code):
     founds = filter(lambda x: x.code.startswith(code), words)
-    if founds:  #trouble here, if not words founds
+    if founds:  # trouble here, if not words founds
         print('\n{:#^20}'.format(' WORDS FOUNDS '))
         for f in founds:
             print_word(f)
