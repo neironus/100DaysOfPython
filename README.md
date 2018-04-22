@@ -188,6 +188,10 @@
 ### Day 41
     EFF passphrase dice generator
 
+### Day 42
+    CSV
+
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
