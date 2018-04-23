@@ -4,20 +4,28 @@ from collections import namedtuple
 import re
 datas = []
 
-fieldnames = """respd_id do_you_celebrate main_dish main_dish_other
-    main_dish_cooked main_dish_cooked_other kind_stuffing
-    kind_stuffing_other kind_cranberry kind_cranberry_other
-    gravy s_dishes_brussel s_d_carrot s_d_cauliflower s_d_corn
+mains_dishes_fields = "main_dish main_dish_other"
+side_dishes_fields = """s_dishes_brussel s_d_carrot s_d_cauliflower s_d_corn
     s_d_cornbread s_d_fruit_salad s_d_beans s_d_macaroni
     s_d_mashed_potatoes s_d_rolls s_d_squash s_d_salad s_d_potato
-    s_d_other s_d_other_d pie_apple pie_buttermilk pie_cherry pie_chocolate
+    s_d_other s_d_other_d"""
+
+pie_fields = """pie_apple pie_buttermilk pie_cherry pie_chocolate
     pie_coconut pie_lime pie_peach pie_pecan pim_pumpkin pie_potato
-    pie_none pie_other pie_other_d des_apple des_blondies des_brownies
+    pie_none pie_other pie_other_d"""
+
+desserts_fields = """des_apple des_blondies des_brownies
     des_carrot des_cheesecake des_cookies des_fudge des_ice_cream des_peach
-    des_none des_other des_other_d pray distance wa_macys cu_kids ht_friends
+    des_none des_other des_other_d"""
+
+fieldnames = """respd_id do_you_celebrate {}
+    main_dish_cooked main_dish_cooked_other kind_stuffing
+    kind_stuffing_other kind_cranberry kind_cranberry_other
+    gravy {} {} {} pray distance wa_macys cu_kids ht_friends
     friendsgiving black_friday work_retail employer_work_bf describe_where
     age gender total_money_household us_region
-    """.split()
+    """.format(mains_dishes_fields, side_dishes_fields,
+               pie_fields, desserts_fields).split()
 
 Record = namedtuple('Record', ", ".join(fieldnames))
 
@@ -31,7 +39,7 @@ def init():
     with open(filename, 'r', encoding='utf-8') as fin:
         reader = csv.DictReader(fin, fieldnames=fieldnames)
         for idx, row in enumerate(reader):
-            if idx == 0:
+            if idx == 0:  # Ignore the first row because header
                 continue
 
             record = Record(**row)
@@ -39,10 +47,8 @@ def init():
 
 
 def get_list_regions():
-    regions = list(set([x.us_region for x in datas]))
-    regions.remove('')
-
-    return regions
+    regions = set([x.us_region for x in datas])
+    return list(cleanning(regions))
 
 
 def sort_moneys(range):
@@ -55,9 +61,8 @@ def sort_moneys(range):
 
 
 def get_moneys_ranges():
-    moneys_ranges = list(set([x.total_money_household for x in datas]))
-    moneys_ranges.remove('')
-    moneys_ranges.remove('Prefer not to answer')
+    moneys_ranges = set([x.total_money_household for x in datas])
+    moneys_ranges = list(cleanning(moneys_ranges))
 
     return sorted(moneys_ranges, key=sort_moneys)
 
@@ -67,3 +72,51 @@ def records_for_region_and_money(region, money):
         r for r in datas if r.us_region == region and
         r.total_money_household == money
     ]
+
+
+# Remove undesired answers
+def cleanning(answers):
+    answers.discard('Other (please specify)')
+    answers.discard('None')
+    answers.discard('I don\t know')
+    answers.discard('')
+    answers.discard('Prefer not to answer')
+
+    return answers
+
+
+def print_answers(txt, answers):
+    answers = cleanning(answers)
+    print('\n{:#^30}'.format(txt))
+    for answer in list(answers):
+        print(answer)
+    print('{:#^30}'.format(''))
+
+
+# Get value for each fields
+def get_value_for_fields(record, fields):
+    return [getattr(record, field) for field in fields.split()]
+
+
+def print_others_meals_choice(region, money):
+    print('\n\n')
+    print('####################################')
+    print('Classic foods choices in your region')
+    print('####################################\n')
+
+    records = records_for_region_and_money(region, money)
+    main_dishes = set()
+    side_dishes = set()
+    pies = set()
+    desserts = set()
+
+    for r in records:
+        main_dishes.update(get_value_for_fields(r, mains_dishes_fields))
+        side_dishes.update(get_value_for_fields(r, side_dishes_fields))
+        side_dishes.update(get_value_for_fields(r, pie_fields))
+        desserts.update(get_value_for_fields(r, desserts_fields))
+
+    print_answers('Main dishes', main_dishes)
+    print_answers('Side dishes', side_dishes)
+    print_answers('Pies', pies)
+    print_answers('Desserts', desserts)
