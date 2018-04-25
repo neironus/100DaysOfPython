@@ -13,7 +13,7 @@ class Twitter(object):
             consumer_secret=secret,
             access_token_key=token,
             access_token_secret=token_secret,
-            # sleep_on_rate_limit=True
+            sleep_on_rate_limit=True
         )
 
     # Generate the post url
