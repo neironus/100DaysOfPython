@@ -7,7 +7,7 @@ twitter_log = logbook.Logger('Twitter')
 
 
 class Twitter(object):
-    def __init__(self, key, secret, token, token_secret):
+    def __init__(self, key, secret, token, token_secret, db=None):
         self.api = twitter.Api(
             consumer_key=key,
             consumer_secret=secret,
@@ -15,6 +15,7 @@ class Twitter(object):
             access_token_secret=token_secret,
             sleep_on_rate_limit=True
         )
+        self.db = db
 
     # Generate the post url
     def generate_url_tweet(self, username, id):
@@ -59,25 +60,61 @@ class Twitter(object):
 
     # Follow a user
     def follow_user(self, user):
-        if not self.is_friend_with(user.id):
+        if not self.is_friend_with(user, insert_db=True):
             twitter_log.info(
                 'Follow user {} with id {}'.format(user.screen_name, user.id)
             )
-            self.api.CreateFriendship(user.id)
+            self._insert_follow_in_db(user)
+            # self.api.CreateFriendship(user.id)
 
     # Retweet a post
     def retweet(self, post):
-        twitter_log.info('Retweet post {}'.format(post.id))
+        # Check in DB if already retweet
+        post_db = self.db.find_one('retweet', {'post_id': post.id})
+        if(post_db):
+            print('already')
+            return
+
         try:
             self.api.PostRetweet(post.id)
+            self._insert_retweet_in_db(post)
+            twitter_log.info('Retweet post {}'.format(post.id))
         except Exception as e:
-            # Todo do something
+            try:
+                code = e.message[0].get('code')  # Already retweet
+                if code == 327:
+                    self._insert_retweet_in_db(post)
+            except Exception as e:
+                twitter_log.exception(e)
             pass
 
     # Check if you follow the user
-    def is_friend_with(self, id):
-        users = self.api.LookupFriendship(user_id=id, return_json=True)
+    def is_friend_with(self, user, insert_db=False):
 
+        # Check in DB if already follow
+        user_db = self.db.find_one('follow', {'user_id': user.id})
+        if(user_db):
+            return True
+
+        # Query twitter if user followed
+        users = self.api.LookupFriendship(user_id=user.id, return_json=True)
         if len(users) > 0:
-            return False if 'none' in users[0].get('connections') else True
+            if 'none' in users[0].get('connections'):
+                return False
+            else:
+                # User already followed but the DB in not aware so insert in DB
+                if insert_db:
+                    self._insert_follow_in_db(user)
+                return True
         return False
+
+    # Insert the follow in db
+    def _insert_follow_in_db(self, user):
+        self.db.insert(
+            'follow', {'user_id': user.id, 'username': user.screen_name}
+        )
+
+    def _insert_retweet_in_db(self, post):
+        self.db.insert(
+            'retweet', {'post_id': post.id}
+        )

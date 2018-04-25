@@ -1,6 +1,7 @@
 import logbook
 import config as cfg
 from actors.twitter import Twitter
+from actors.db import DB
 
 
 def init_logging():
@@ -19,9 +20,12 @@ def init_logging():
 
 
 def main():
+    db = DB(cfg.mongodb.get('host'), cfg.mongodb.get('db'))
+
     t = Twitter(
         cfg.twitter.get('consumer_key'), cfg.twitter.get('consumer_secret'),
-        cfg.twitter.get('access_token'), cfg.twitter.get('access_token_secret')
+        cfg.twitter.get('access_token'),
+        cfg.twitter.get('access_token_secret'), db
     )
     t.search_hashtags('concours')
 
