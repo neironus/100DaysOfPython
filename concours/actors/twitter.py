@@ -25,7 +25,7 @@ class Twitter(object):
     def get_posts(self, keyword):
         results = self.api.GetSearch(term=keyword)
 
-        twitter_log.info(
+        twitter_log.trace(
             'Search {} - {} results'.format(keyword, len(results))
         )
 
@@ -46,11 +46,18 @@ class Twitter(object):
     def exploit_post(self, post):
         if post.text[0:2] != 'RT':
             self.generate_url_tweet(post.user.screen_name, post.id_str)
-            self.follow_users(post.user_mentions)
-            self.follow_user(post.user)
-            self.retweet(post)
-            # print(post)
-            print('\n\n\n')
+            if self.does_post_contain_concours_keyword(post.text):
+                self.follow_users(post.user_mentions)
+                self.follow_user(post.user)
+                self.retweet(post)
+                # print(post)
+                print('\n\n\n')
+            else:
+                twitter_log.info(
+                    '{} from {}, really not a concours ? {}'.format(
+                        post.id_str, post.user.screen_name, post.text
+                    )
+                )
 
     # Follow several users
     def follow_users(self, user_mentions):
@@ -61,7 +68,7 @@ class Twitter(object):
     # Follow a user
     def follow_user(self, user):
         if not self.is_friend_with(user, insert_db=True):
-            twitter_log.info(
+            twitter_log.trace(
                 'Follow user {} with id {}'.format(user.screen_name, user.id)
             )
             self._insert_follow_in_db(user)
@@ -72,13 +79,12 @@ class Twitter(object):
         # Check in DB if already retweet
         post_db = self.db.find_one('retweet', {'post_id': post.id})
         if(post_db):
-            print('already')
             return
 
         try:
             self.api.PostRetweet(post.id)
             self._insert_retweet_in_db(post)
-            twitter_log.info('Retweet post {}'.format(post.id))
+            twitter_log.trace('Retweet post {}'.format(post.id))
         except Exception as e:
             try:
                 code = e.message[0].get('code')  # Already retweet
@@ -107,6 +113,13 @@ class Twitter(object):
                     self._insert_follow_in_db(user)
                 return True
         return False
+
+    def does_post_contain_concours_keyword(self, text):
+        keywords = ['rt', 'follow']
+
+        return True if list(filter(
+            lambda x: text.lower().find(x) != -1, keywords
+        )) else False
 
     # Insert the follow in db
     def _insert_follow_in_db(self, user):
