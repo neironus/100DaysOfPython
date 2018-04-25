@@ -45,9 +45,9 @@ class Twitter(object):
     def exploit_post(self, post):
         if post.text[0:2] != 'RT':
             self.generate_url_tweet(post.user.screen_name, post.id_str)
-            # self.follow_users(post.user_mentions)
-            # self.follow_users(post.user)
-            # self.retweet(post)
+            self.follow_users(post.user_mentions)
+            self.follow_users(post.user)
+            self.retweet(post)
             # print(post)
             print('\n\n\n')
 
