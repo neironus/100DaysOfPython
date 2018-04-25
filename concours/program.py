@@ -4,12 +4,14 @@ from actors.twitter import Twitter
 
 
 def init_logging():
-    lvl = logbook.TRACE
-#
-    logbook.TimedRotatingFileHandler('logs/logs.log', level=lvl).push_application()
+    level = logbook.TRACE
+
+    logbook.TimedRotatingFileHandler(
+        'logs/logs.log', level=level
+    ).push_application()
 
     msg = 'Logging initialized, level: {}, mode: {}'.format(
-        lvl,
+        level,
         'file mode: logs.log'
     )
     logger = logbook.Logger('Startup')

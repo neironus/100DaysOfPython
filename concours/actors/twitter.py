@@ -46,15 +46,16 @@ class Twitter(object):
         if post.text[0:2] != 'RT':
             self.generate_url_tweet(post.user.screen_name, post.id_str)
             self.follow_users(post.user_mentions)
-            self.follow_users(post.user)
+            self.follow_user(post.user)
             self.retweet(post)
             # print(post)
             print('\n\n\n')
 
     # Follow several users
     def follow_users(self, user_mentions):
-        for user in user_mentions:
-            self.follow_user(user)
+        if user_mentions:
+            for user in user_mentions:
+                self.follow_user(user)
 
     # Follow a user
     def follow_user(self, user):
@@ -67,7 +68,11 @@ class Twitter(object):
     # Retweet a post
     def retweet(self, post):
         twitter_log.info('Retweet post {}'.format(post.id))
-        self.api.PostRetweet(post.id)
+        try:
+            self.api.PostRetweet(post.id)
+        except Exception as e:
+            # Todo do something
+            pass
 
     # Check if you follow the user
     def is_friend_with(self, id):
