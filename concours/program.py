@@ -6,7 +6,7 @@ from actors.twitter import Twitter
 def init_logging():
     lvl = logbook.TRACE
 #
-    logbook.TimedRotatingFileHandler('logs.log', level=lvl).push_application()
+    logbook.TimedRotatingFileHandler('logs/logs.log', level=lvl).push_application()
 
     msg = 'Logging initialized, level: {}, mode: {}'.format(
         lvl,
