@@ -3,6 +3,8 @@
 Exemple config.py
 
 ```python
+debug = True
+
 twitter = {
     'consumer_key': 'YOUR CONSUMER KEY',
     'consumer_secret': 'YOUR CONSUMER SECRET',
@@ -10,4 +12,8 @@ twitter = {
     'access_token_secret': 'ACCESS TOKEN SECRET'
 }
 
+mongodb = {
+    'host': 'mongodb://localhost:27017/',
+    'db': 'concours'
+}
 ```
