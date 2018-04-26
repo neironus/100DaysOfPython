@@ -137,6 +137,12 @@ class Twitter(object):
         else:
             return False
 
+    # Post a tweet, if answer_post_id specified will answer to this post
+    def post_tweet(self, status, answer_post_id=None):
+        self.api.PostUpdate(
+            status=status, in_reply_to_status_id=answer_post_id
+        )
+
     # Insert the follow in db
     def _insert_follow_in_db(self, user):
         self.db.insert(
@@ -168,3 +174,5 @@ class Twitter(object):
             print('sleep for {} seconds'.format(r))
             sleep(r)
             print('done sleep')
+
+
