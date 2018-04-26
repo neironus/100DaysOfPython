@@ -1,6 +1,7 @@
 # https://python-twitter.readthedocs.io/en/latest/twitter.html
 import twitter
 import logbook
+import urllib
 from pprint import pprint
 
 twitter_log = logbook.Logger('Twitter')
@@ -23,7 +24,8 @@ class Twitter(object):
 
     # Make a query with the term keyword
     def get_posts(self, keyword):
-        results = self.api.GetSearch(term=keyword)
+        query = urllib.parse.urlencode({'q': keyword, 'count': 200, 'result_type': 'mixed', 'tweet_mode': 'extended'})
+        results = self.api.GetSearch(raw_query=query)
 
         twitter_log.trace(
             'Search {} - {} results'.format(keyword, len(results))
@@ -44,18 +46,17 @@ class Twitter(object):
 
     # Exploit a post
     def exploit_post(self, post):
-        if post.text[0:2] != 'RT':
+        if post.full_text[0:2] != 'RT':
             self.generate_url_tweet(post.user.screen_name, post.id_str)
-            if self.does_post_contain_concours_keyword(post.text):
+            if self.does_post_contain_concours_keyword(post.full_text):
                 self.follow_users(post.user_mentions)
                 self.follow_user(post.user)
                 self.retweet(post)
-                # print(post)
                 print('\n\n\n')
             else:
                 twitter_log.info(
                     '{} from {}, really not a concours ? {}'.format(
-                        post.id_str, post.user.screen_name, post.text
+                        post.id_str, post.user.screen_name, post.full_text
                     )
                 )
 
@@ -72,7 +73,7 @@ class Twitter(object):
                 'Follow user {} with id {}'.format(user.screen_name, user.id)
             )
             self._insert_follow_in_db(user)
-            # self.api.CreateFriendship(user.id)
+            self.api.CreateFriendship(user.id)
 
     # Retweet a post
     def retweet(self, post):
@@ -84,7 +85,9 @@ class Twitter(object):
         try:
             self.api.PostRetweet(post.id)
             self._insert_retweet_in_db(post)
-            twitter_log.trace('Retweet post {}'.format(post.id))
+            twitter_log.trace('Retweet post {} from user {} with id {}'.format(
+                post.id, post.user.screen_name, post.user.id
+            ))
         except Exception as e:
             try:
                 code = e.message[0].get('code')  # Already retweet
@@ -129,5 +132,8 @@ class Twitter(object):
 
     def _insert_retweet_in_db(self, post):
         self.db.insert(
-            'retweet', {'post_id': post.id}
+            'retweet', {
+                'post_id': post.id, 'user_id': post.user.id,
+                'user_name': post.user.screen_name
+            }
         )
