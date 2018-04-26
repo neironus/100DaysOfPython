@@ -4,6 +4,8 @@ import logbook
 import urllib
 from pprint import pprint
 
+MAX_COUNT = 20
+
 twitter_log = logbook.Logger('Twitter')
 
 
@@ -20,12 +22,12 @@ class Twitter(object):
 
     # Generate the post url
     def generate_url_tweet(self, username, id):
-        print('https://twitter.com/{}/status/{}'.format(username, id))
+        print('> https://twitter.com/{}/status/{}'.format(username, id))
 
     # Make a query with the term keyword
     def get_posts(self, keyword):
         query = urllib.parse.urlencode({
-            'q': keyword, 'count': 100, 'result_type': 'mixed',
+            'q': keyword, 'count': MAX_COUNT, 'result_type': 'mixed',
             'tweet_mode': 'extended'
         })
         results = self.api.GetSearch(raw_query=query)
@@ -50,8 +52,8 @@ class Twitter(object):
     # Exploit a post
     def exploit_post(self, post):
         if post.full_text[0:2] != 'RT':
-            self.generate_url_tweet(post.user.screen_name, post.id_str)
             if self.does_post_contain_concours_keyword(post.full_text):
+                self.generate_url_tweet(post.user.screen_name, post.id_str)
                 self.follow_users(post.user_mentions)
                 self.follow_user(post.user)
                 self.retweet(post)
@@ -118,7 +120,7 @@ class Twitter(object):
 
     # Does the post some keywords or not
     def does_post_contain_concours_keyword(self, text):
-        keywords = ['rt', 'follow']
+        keywords = [' rt ', ' follow ']
 
         return True if list(filter(
             lambda x: text.lower().find(x) != -1, keywords
@@ -144,6 +146,6 @@ class Twitter(object):
         self.db.insert(
             'false_negative', {
                 'post_id': post.id, 'user_id': post.user.id,
-                'user_name': post.user.screen_name, "text": post.post.full_text
+                'user_name': post.user.screen_name, "text": post.full_text
             }
         )
