@@ -3,6 +3,9 @@ import twitter
 import logbook
 import urllib
 from pprint import pprint
+from time import sleep
+from random import randint
+import config as cfg
 
 MAX_COUNT = 200
 FILTERED_MIN = 2
@@ -27,6 +30,7 @@ class Twitter(object):
 
     # Make a query with the term keyword
     def get_posts(self, keyword):
+        self._sleep_random()
         query = urllib.parse.urlencode({
             'q': keyword, 'count': MAX_COUNT, 'result_type': 'recent',
             'tweet_mode': 'extended'
@@ -48,6 +52,7 @@ class Twitter(object):
         print('> {} results'.format(len(results)))
 
         for result in results:
+            self._sleep_random(1, 4)
             self.exploit_post(result)
 
     # Exploit a post
@@ -155,3 +160,11 @@ class Twitter(object):
                 'user_name': post.user.screen_name, "text": post.full_text
             }
         )
+
+    # Sleep for x random seconds
+    def _sleep_random(self, a=20, b=120):
+        if not cfg.debug and cfg.twitter.get('sleep'):
+            r = randint(a, b)
+            print('sleep for {} seconds'.format(r))
+            sleep(r)
+            print('done sleep')
