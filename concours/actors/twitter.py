@@ -95,6 +95,7 @@ class Twitter(object):
             twitter_log.trace('Retweet post {} from user {} with id {}'.format(
                 post.id, post.user.screen_name, post.user.id
             ))
+            self._reply_post(post)
         except Exception as e:
             try:
                 code = e.message[0].get('code')  # Already retweet
@@ -138,7 +139,10 @@ class Twitter(object):
             return False
 
     # Post a tweet, if answer_post_id specified will answer to this post
-    def post_tweet(self, status, answer_post_id=None):
+    def post_tweet(self, status, post_owner=None, answer_post_id=None):
+        if post_owner:
+            status = '@{} {}'.format(post_owner, status)
+
         self.api.PostUpdate(
             status=status, in_reply_to_status_id=answer_post_id
         )
@@ -175,4 +179,36 @@ class Twitter(object):
             sleep(r)
             print('done sleep')
 
+    # Answer to post
+    def _reply_post(self, post):
+        if self._does_i_reply():
+            reply = self.db.get_random_row('replies')
+            self.post_tweet(reply.get('reply'), post.user.screen_name, post.id)
 
+    # Check if I need to reply
+    def _does_i_reply(self):
+        valid_reply = ['never', 'sometime', 'always']
+
+        try:
+            reply = cfg.twitter.get('reply')
+            if reply in valid_reply:
+                if reply == 'never':
+                    return False
+                if reply == 'sometime':
+                    return randint(1, 10) > 9
+                if reply == 'always':
+                    return True
+            else:
+                raise ValueError(
+                    'The field reply specified in config.py is invalid'
+                )
+        except ValueError as e:
+            twitter_log.error('{} - Current value: {}'.format(
+                e, cfg.twitter.get('reply')
+            ))
+            print(e)
+            exit()
+        except Exception as e:
+            twitter_log.exception(e)
+            print(e)
+            raise e
