@@ -14,3 +14,6 @@ class DB:
 
     def find_one(self, collection, where):
         return self.db[collection].find_one(where)
+
+    def clear_collection(self, collection):
+        return self.db[collection].drop()
