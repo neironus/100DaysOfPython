@@ -7,7 +7,7 @@ from time import sleep
 from random import randint
 import config as cfg
 
-MAX_COUNT = 200
+MAX_COUNT = 100
 FILTERED_MIN = 2
 
 twitter_log = logbook.Logger('Twitter')
@@ -32,7 +32,7 @@ class Twitter(object):
     def get_posts(self, keyword):
         self._sleep_random()
         query = urllib.parse.urlencode({
-            'q': keyword, 'count': MAX_COUNT, 'result_type': 'recent',
+            'q': keyword, 'count': MAX_COUNT, 'result_type': 'popular',
             'tweet_mode': 'extended'
         })
         results = self.api.GetSearch(raw_query=query)
