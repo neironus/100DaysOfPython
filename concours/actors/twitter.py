@@ -4,7 +4,8 @@ import logbook
 import urllib
 from pprint import pprint
 
-MAX_COUNT = 20
+MAX_COUNT = 200
+FILTERED_MIN = 2
 
 twitter_log = logbook.Logger('Twitter')
 
@@ -27,7 +28,7 @@ class Twitter(object):
     # Make a query with the term keyword
     def get_posts(self, keyword):
         query = urllib.parse.urlencode({
-            'q': keyword, 'count': MAX_COUNT, 'result_type': 'mixed',
+            'q': keyword, 'count': MAX_COUNT, 'result_type': 'recent',
             'tweet_mode': 'extended'
         })
         results = self.api.GetSearch(raw_query=query)
@@ -122,9 +123,14 @@ class Twitter(object):
     def does_post_contain_concours_keyword(self, text):
         keywords = [' rt ', ' follow ']
 
-        return True if list(filter(
+        filtered = list(filter(
             lambda x: text.lower().find(x) != -1, keywords
-        )) else False
+        ))
+
+        if len(filtered) >= FILTERED_MIN:
+            return True
+        else:
+            return False
 
     # Insert the follow in db
     def _insert_follow_in_db(self, user):
