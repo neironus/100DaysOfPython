@@ -57,11 +57,6 @@ class Twitter(object):
                 self.retweet(post)
                 print('\n\n\n')
             else:
-                twitter_log.info(
-                    '{} from {}, really not a concours ? {}'.format(
-                        post.id_str, post.user.screen_name, post.full_text
-                    )
-                )
                 self._insert_possible_false_negative(post)
 
     # Follow several users
