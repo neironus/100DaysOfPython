@@ -24,7 +24,10 @@ class Twitter(object):
 
     # Make a query with the term keyword
     def get_posts(self, keyword):
-        query = urllib.parse.urlencode({'q': keyword, 'count': 200, 'result_type': 'mixed', 'tweet_mode': 'extended'})
+        query = urllib.parse.urlencode({
+            'q': keyword, 'count': 100, 'result_type': 'mixed',
+            'tweet_mode': 'extended'
+        })
         results = self.api.GetSearch(raw_query=query)
 
         twitter_log.trace(
@@ -59,6 +62,7 @@ class Twitter(object):
                         post.id_str, post.user.screen_name, post.full_text
                     )
                 )
+                self._insert_possible_false_negative(post)
 
     # Follow several users
     def follow_users(self, user_mentions):
@@ -117,6 +121,7 @@ class Twitter(object):
                 return True
         return False
 
+    # Does the post some keywords or not
     def does_post_contain_concours_keyword(self, text):
         keywords = ['rt', 'follow']
 
@@ -130,10 +135,20 @@ class Twitter(object):
             'follow', {'user_id': user.id, 'username': user.screen_name}
         )
 
+    # Insert the retweet in db
     def _insert_retweet_in_db(self, post):
         self.db.insert(
             'retweet', {
                 'post_id': post.id, 'user_id': post.user.id,
                 'user_name': post.user.screen_name
+            }
+        )
+
+    # Insert the possible false negative in db
+    def _insert_possible_false_negative(self, post):
+        self.db.insert(
+            'false_negative', {
+                'post_id': post.id, 'user_id': post.user.id,
+                'user_name': post.user.screen_name, "text": post.post.full_text
             }
         )
