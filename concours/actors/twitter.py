@@ -32,7 +32,7 @@ class Twitter(object):
     def get_posts(self, keyword):
         self._sleep_random()
         query = urllib.parse.urlencode({
-            'q': keyword, 'count': MAX_COUNT, 'result_type': 'popular',
+            'q': keyword, 'count': MAX_COUNT, 'result_type': 'recent',
             'tweet_mode': 'extended'
         })
         results = self.api.GetSearch(raw_query=query)
@@ -57,15 +57,17 @@ class Twitter(object):
 
     # Exploit a post
     def exploit_post(self, post):
-        if post.full_text[0:2] != 'RT':
-            if self.does_post_contain_concours_keyword(post.full_text):
-                self.generate_url_tweet(post.user.screen_name, post.id_str)
-                self.follow_users(post.user_mentions)
-                self.follow_user(post.user)
-                self.retweet(post)
-                print('\n\n\n')
-            else:
-                self._insert_possible_false_negative(post)
+        if post.retweeted_status:
+            post = post.retweeted_status
+
+        if self.does_post_contain_concours_keyword(post.full_text):
+            self.generate_url_tweet(post.user.screen_name, post.id_str)
+            self.follow_users(post.user_mentions)
+            self.follow_user(post.user)
+            self.retweet(post)
+            print('\n\n\n')
+        else:
+            self._insert_possible_false_negative(post)
 
     # Follow several users
     def follow_users(self, user_mentions):
