@@ -12,6 +12,7 @@ twitter = {
     'access_token_secret': 'ACCESS TOKEN SECRET',
     'sleep': True,
     'reply': 'never',  # Possible answer never/sometime/always
+    'minimum_retweet': 50,
 }
 
 mongodb = {

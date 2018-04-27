@@ -61,12 +61,11 @@ class Twitter(object):
         if post.retweeted_status:
             post = post.retweeted_status
 
-        if self.does_post_contain_concours_keyword(post.full_text):
-            self.generate_url_tweet(post.user.screen_name, post.id_str)
+        if self.post_is_valid(post):
             self.follow_users(post.user_mentions)
             self.follow_user(post.user)
             self.retweet(post)
-            print('\n\n\n')
+            # print('\n\n\n')
         else:
             self._insert_possible_false_negative(post)
 
@@ -98,6 +97,9 @@ class Twitter(object):
             twitter_log.trace('Retweet post {} from user {} with id {}'.format(
                 post.id, post.user.screen_name, post.user.id
             ))
+            print('## Post retweet ##')
+            self.generate_url_tweet(post.user.screen_name, post.id_str)
+            print('\n\n')
             self._reply_post(post)
         except Exception as e:
             try:
@@ -150,6 +152,16 @@ class Twitter(object):
             status=status, in_reply_to_status_id=answer_post_id
         )
 
+    # Check is the post is valid
+    def post_is_valid(self, post):
+        have_keyword = self.does_post_contain_concours_keyword(post.full_text)
+        not_start_by_rt = post.full_text[0:2] != 'RT'
+        retweet_minimum = (
+            post.retweet_count >= cfg.twitter.get('minimum_retweet', 50)
+        )
+
+        return have_keyword and not_start_by_rt and retweet_minimum
+
     # Insert the follow in db
     def _insert_follow_in_db(self, user):
         self.db.insert(
@@ -176,7 +188,7 @@ class Twitter(object):
 
     # Sleep for x random seconds
     def _sleep_random(self, a=20, b=120):
-        if not cfg.debug and cfg.twitter.get('sleep'):
+        if not cfg.debug and cfg.twitter.get('sleep', 'True'):
             r = randint(a, b)
             print('sleep for {} seconds'.format(r))
             sleep(r)
@@ -193,7 +205,7 @@ class Twitter(object):
         valid_reply = ['never', 'sometime', 'always']
 
         try:
-            reply = cfg.twitter.get('reply')
+            reply = cfg.twitter.get('reply', 'never')
             if reply in valid_reply:
                 if reply == 'never':
                     return False
@@ -207,7 +219,7 @@ class Twitter(object):
                 )
         except ValueError as e:
             twitter_log.error('{} - Current value: {}'.format(
-                e, cfg.twitter.get('reply')
+                e, cfg.twitter.get('reply', 'empty')
             ))
             print(e)
             exit()
