@@ -45,7 +45,8 @@ class Twitter(object):
 
     # Search for a specific hashtag
     def search_hashtags(self, hashtags):
-        self.get_posts('#{}'.format(hashtags))
+        for hashtag in hashtags:
+            self.get_posts('#{}'.format(hashtag))
 
     # Exploit list of results
     def exploit_results(self, results):
