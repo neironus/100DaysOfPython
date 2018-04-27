@@ -52,7 +52,7 @@ class Twitter(object):
         print('> {} results'.format(len(results)))
 
         for result in results:
-            self._sleep_random(1, 4)
+            self._sleep_random(1, 9)
             self.exploit_post(result)
 
     # Exploit a post
