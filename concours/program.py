@@ -27,7 +27,10 @@ def main():
         cfg.twitter.get('access_token'),
         cfg.twitter.get('access_token_secret'), db
     )
-    t.search_hashtags(['concours', 'jeuconcours', 'giveaway', 'gagner', 'jeu', 'win', 'prize'])
+    t.search_hashtags([
+        'concours', 'jeuconcours', 'giveaway', 'gagner', 'jeu', 'win', 'prize',
+        'freebiefriday', 'fridayfreebie', 'competition'
+    ])
 
 
 if __name__ == '__main__':
