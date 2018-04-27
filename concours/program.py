@@ -3,6 +3,8 @@ import config as cfg
 from actors.twitter import Twitter
 from actors.db import DB
 
+app_log = logbook.Logger('APP')
+
 
 def init_logging():
     level = logbook.TRACE
@@ -11,12 +13,12 @@ def init_logging():
         'logs/logs.log', level=level
     ).push_application()
 
-    msg = 'Logging initialized, level: {}, mode: {}'.format(
+    msg = 'Startup - Logging initialized, level: {}, mode: {}'.format(
         level,
         'file mode: logs.log'
     )
-    logger = logbook.Logger('Startup')
-    logger.notice(msg)
+
+    app_log.notice(msg)
 
 
 def main():
@@ -31,6 +33,8 @@ def main():
         'concours', 'jeuconcours', 'giveaway', 'gagner', 'jeu', 'win', 'prize',
         'freebiefriday', 'fridayfreebie', 'competition'
     ])
+
+    app_log.notice('Quit App')
 
 
 if __name__ == '__main__':
