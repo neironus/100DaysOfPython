@@ -30,13 +30,13 @@ def main():
         cfg.twitter.get('access_token_secret'), db
     )
 
-    if not cfg.debug:
+    if cfg.debug:
+        t.search_hashtags(['freebiefriday'])
+    else:
         t.search_hashtags([
             'concours', 'jeuconcours', 'giveaway', 'gagner', 'jeu', 'win',
             'prize', 'freebiefriday', 'fridayfreebie', 'competition'
         ])
-    else:
-        t.search_hashtags(['freebiefriday'])
 
     app_log.notice('Quit App')
 
