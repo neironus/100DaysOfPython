@@ -13,7 +13,9 @@ twitter = {
     'sleep': True,
     'reply': 'never',  # Possible answer never/sometime/always
     'minimum_retweet': 50,
-    'friends': []
+    'oldest_max_days': 30,
+    'friends': [],
+    'max_tweets_get': 100, #maximum of 100
 }
 
 mongodb = {
