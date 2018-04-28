@@ -61,17 +61,18 @@ class Twitter(object):
         if post.retweeted_status:
             post = post.retweeted_status
 
-        if self.post_is_valid(post):
-            # follow user mentioned in the post
-            self.follow_users(post.user_mentions)
+        if not self.post_already_exploited(post):
+            if self.post_is_valid(post):
+                # follow user mentioned in the post
+                self.follow_users(post.user_mentions)
 
-            self.follow_user(post.user)
-            self.like_post(post)
-            self.retweet(post)
-            self.reply_post(post)
-            # print('\n\n\n')
-        else:
-            self._insert_possible_false_negative(post)
+                self.follow_user(post.user)
+                self.like_post(post)
+                self.retweet(post)
+                self.reply_post(post)
+                # print('\n\n\n')
+            else:
+                self._insert_possible_false_negative(post)
 
     # Follow several users
     def follow_users(self, user_mentions):
@@ -119,10 +120,6 @@ class Twitter(object):
 
     # List post
     def like_post(self, post):
-        post_db = self.db.find_one('likes', {'post_id': post.id})
-        if(post_db):
-            return
-
         if self.does_post_need_like(post.full_text) or randint(0, 100) >= 90:
             try:
                 self.api.CreateFavorite(status_id=post.id)
@@ -130,6 +127,7 @@ class Twitter(object):
             except Exception as e:
                 try:
                     code = e.message[0].get('code')
+                    print('#### 133 {} {}'.format(post.id, e))
                     if code == 139:  # Already like
                         self._insert_retweet_in_db(post)
                 except Exception as e:
@@ -138,7 +136,7 @@ class Twitter(object):
 
     # Does need to tag friends?
     def does_i_need_tag_friend(self, text):
-        keywords = ['tag a friend', 'tag']
+        keywords = ['tag a friend', ' tag ']
 
         return len(self._filter_keywords(keywords, text)) > 0
 
@@ -180,12 +178,19 @@ class Twitter(object):
             status=status, in_reply_to_status_id=answer_post_id
         )
 
+    # Check if the age of the post is older younger than cfg
     def check_post_age(self, date):
         date = datetime.strptime(date, '%a %b %d %X %z %Y').date()
         now = datetime.now().date()
         delta = now - date
 
         return delta.days <= cfg.twitter.get('oldest_max_days', 30)
+
+    # Check if the post has already been exploited
+    def post_already_exploited(self, post):
+        post_db = self.db.find_one('retweet', {'post_id': post.id})
+
+        return post_db
 
     # Check is the post is valid
     def post_is_valid(self, post):
@@ -209,10 +214,11 @@ class Twitter(object):
 
     # Reply to post
     def reply_post(self, post):
-        reply = self.db.get_random_row('replies')
-
         if self.does_i_need_tag_friend(post.full_text):
+            reply = self.db.get_random_row('replies')
             friends = self.get_friends()
+            print(post.full_text)
+            return
             if friends:
                 self.post_tweet(
                     '{} {}'.format(reply.get('reply'), " ".join(friends)),
@@ -221,6 +227,7 @@ class Twitter(object):
                 )
         else:
             if self._does_i_reply():
+                reply = self.db.get_random_row('replies')
                 self.post_tweet(
                     reply.get('reply'), post.user.screen_name, post.id
                 )
