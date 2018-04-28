@@ -4,10 +4,10 @@ import logbook
 import urllib
 from pprint import pprint
 from time import sleep
-from random import randint
+from random import randint, sample
 import config as cfg
 
-MAX_COUNT = 100
+MAX_COUNT = 2
 FILTERED_MIN = 2
 
 twitter_log = logbook.Logger('Twitter')
@@ -62,9 +62,13 @@ class Twitter(object):
             post = post.retweeted_status
 
         if self.post_is_valid(post):
+            # follow user mentioned in the post
             self.follow_users(post.user_mentions)
+
             self.follow_user(post.user)
+            self.like_post(post)
             self.retweet(post)
+            self.reply_post(post)
             # print('\n\n\n')
         else:
             self._insert_possible_false_negative(post)
@@ -100,7 +104,6 @@ class Twitter(object):
             print('## Post retweet ##')
             self.generate_url_tweet(post.user.screen_name, post.id_str)
             print('\n\n')
-            self._reply_post(post)
         except Exception as e:
             try:
                 code = e.message[0].get('code')  # Already retweet
@@ -109,6 +112,31 @@ class Twitter(object):
             except Exception as e:
                 twitter_log.exception(e)
             pass
+
+    # Does need to like
+    def does_post_need_like(self, text):
+        keywords = ['like', 'aime']
+
+        filtered = list(filter(
+            lambda x: text.lower().find(x) != -1, keywords
+        ))
+
+        return len(filtered) > 0
+
+    # List post
+    def like_post(self, post):
+        if self.does_post_need_like(post.full_text) or randint(0, 100) >= 90:
+            self.api.CreateFavorite(status_id=post.id)
+
+    # Does need to tag friends?
+    def does_i_need_tag_friend(self, text):
+        keywords = ['tag a friend']
+
+        filtered = list(filter(
+            lambda x: text.lower().find(x) != -1, keywords
+        ))
+
+        return len(filtered) > 0
 
     # Check if you follow the user
     def is_friend_with(self, user, insert_db=False):
@@ -162,6 +190,29 @@ class Twitter(object):
 
         return have_keyword and not_start_by_rt and retweet_minimum
 
+    def get_friends(self, nb=1):
+        friends = cfg.twitter.get('friends')
+        try:
+            return sample(friends, nb)
+        except ValueError as e:
+            twitter_log.exception(e)
+
+    # Reply to post
+    def reply_post(self, post):
+        if self.does_i_need_tag_friend(post.full_text):
+            friends = self.get_friends()
+            if friends:
+                self.post_tweet(
+                    '{} :)'.format(" ".join(friends)), post.user.screen_name,
+                    post.id
+                )
+        else:
+            if self._does_i_reply():
+                reply = self.db.get_random_row('replies')
+                self.post_tweet(
+                    reply.get('reply'), post.user.screen_name, post.id
+                )
+
     # Insert the follow in db
     def _insert_follow_in_db(self, user):
         self.db.insert(
@@ -193,12 +244,6 @@ class Twitter(object):
             print('sleep for {} seconds'.format(r))
             sleep(r)
             print('done sleep')
-
-    # Answer to post
-    def _reply_post(self, post):
-        if self._does_i_reply():
-            reply = self.db.get_random_row('replies')
-            self.post_tweet(reply.get('reply'), post.user.screen_name, post.id)
 
     # Check if I need to reply
     def _does_i_reply(self):
