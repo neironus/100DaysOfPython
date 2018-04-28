@@ -5,9 +5,9 @@ import urllib
 from pprint import pprint
 from time import sleep
 from random import randint, sample
+from datetime import datetime
 import config as cfg
 
-MAX_COUNT = 100
 FILTERED_MIN = 2
 
 twitter_log = logbook.Logger('Twitter')
@@ -32,8 +32,8 @@ class Twitter(object):
     def get_posts(self, keyword):
         self._sleep_random()
         query = urllib.parse.urlencode({
-            'q': keyword, 'count': MAX_COUNT, 'result_type': 'recent',
-            'tweet_mode': 'extended'
+            'q': keyword, 'count': cfg.twitter.get('max_tweets_get', 100),
+            'result_type': 'recent', 'tweet_mode': 'extended'
         })
         results = self.api.GetSearch(raw_query=query)
 
@@ -180,6 +180,13 @@ class Twitter(object):
             status=status, in_reply_to_status_id=answer_post_id
         )
 
+    def check_post_age(self, date):
+        date = datetime.strptime(date, '%a %b %d %X %z %Y').date()
+        now = datetime.now().date()
+        delta = now - date
+
+        return delta.days <= cfg.twitter.get('oldest_max_days', 30)
+
     # Check is the post is valid
     def post_is_valid(self, post):
         have_keyword = self.does_post_contain_concours_keyword(post.full_text)
@@ -187,8 +194,11 @@ class Twitter(object):
         retweet_minimum = (
             post.retweet_count >= cfg.twitter.get('minimum_retweet', 50)
         )
+        post_age = self.check_post_age(post.created_at)
 
-        return have_keyword and not_start_by_rt and retweet_minimum
+        return (
+            have_keyword and not_start_by_rt and retweet_minimum and post_age
+        )
 
     def get_friends(self, nb=1):
         friends = cfg.twitter.get('friends')
