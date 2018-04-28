@@ -7,7 +7,7 @@ from time import sleep
 from random import randint, sample
 import config as cfg
 
-MAX_COUNT = 2
+MAX_COUNT = 100
 FILTERED_MIN = 2
 
 twitter_log = logbook.Logger('Twitter')
@@ -116,12 +116,7 @@ class Twitter(object):
     # Does need to like
     def does_post_need_like(self, text):
         keywords = ['like', 'aime']
-
-        filtered = list(filter(
-            lambda x: text.lower().find(x) != -1, keywords
-        ))
-
-        return len(filtered) > 0
+        return len(self._filter_keywords(keywords, text)) > 0
 
     # List post
     def like_post(self, post):
@@ -132,11 +127,7 @@ class Twitter(object):
     def does_i_need_tag_friend(self, text):
         keywords = ['tag a friend']
 
-        filtered = list(filter(
-            lambda x: text.lower().find(x) != -1, keywords
-        ))
-
-        return len(filtered) > 0
+        return len(self._filter_keywords(keywords, text)) > 0
 
     # Check if you follow the user
     def is_friend_with(self, user, insert_db=False):
@@ -162,11 +153,7 @@ class Twitter(object):
     def does_post_contain_concours_keyword(self, text):
         keywords = [' rt ', ' follow ']
 
-        filtered = list(filter(
-            lambda x: text.lower().find(x) != -1, keywords
-        ))
-
-        if len(filtered) >= FILTERED_MIN:
+        if len(self._filter_keywords(keywords, text)) >= FILTERED_MIN:
             return True
         else:
             return False
@@ -272,3 +259,9 @@ class Twitter(object):
             twitter_log.exception(e)
             print(e)
             raise e
+
+
+    def _filter_keywords(self, keywords, text):
+        return list(filter(
+            lambda x: text.lower().find(x) != -1, keywords
+        ))
