@@ -111,7 +111,6 @@ class Twitter(object):
                     self._insert_retweet_in_db(post)
             except Exception as e:
                 twitter_log.exception(e)
-            pass
 
     # Does need to like
     def does_post_need_like(self, text):
@@ -120,15 +119,26 @@ class Twitter(object):
 
     # List post
     def like_post(self, post):
+        post_db = self.db.find_one('likes', {'post_id': post.id})
+        if(post_db):
+            return
+
         if self.does_post_need_like(post.full_text) or randint(0, 100) >= 90:
             try:
                 self.api.CreateFavorite(status_id=post.id)
+                self._insert_like_in_db(post)
             except Exception as e:
+                try:
+                    code = e.message[0].get('code')
+                    if code == 139:  # Already like
+                        self._insert_retweet_in_db(post)
+                except Exception as e:
+                    raise e
                 twitter_log.exception(e)
 
     # Does need to tag friends?
     def does_i_need_tag_friend(self, text):
-        keywords = ['tag a friend']
+        keywords = ['tag a friend', 'tag']
 
         return len(self._filter_keywords(keywords, text)) > 0
 
@@ -213,6 +223,15 @@ class Twitter(object):
     def _insert_retweet_in_db(self, post):
         self.db.insert(
             'retweet', {
+                'post_id': post.id, 'user_id': post.user.id,
+                'user_name': post.user.screen_name
+            }
+        )
+
+    # Insert like in db
+    def _insert_like_in_db(self, post):
+        self.db.insert(
+            'likes', {
                 'post_id': post.id, 'user_id': post.user.id,
                 'user_name': post.user.screen_name
             }
