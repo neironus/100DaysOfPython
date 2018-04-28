@@ -13,6 +13,7 @@ twitter = {
     'sleep': True,
     'reply': 'never',  # Possible answer never/sometime/always
     'minimum_retweet': 50,
+    'friends': []
 }
 
 mongodb = {
