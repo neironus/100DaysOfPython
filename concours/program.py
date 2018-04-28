@@ -31,11 +31,12 @@ def main():
     )
 
     if cfg.debug:
-        t.search_hashtags(['freebiefriday'])
+        t.search_hashtags(['concours'])
     else:
         t.search_hashtags([
             'concours', 'jeuconcours', 'giveaway', 'gagner', 'jeu', 'win',
-            'prize', 'freebiefriday', 'fridayfreebie', 'competition'
+            'prize', 'freebiefriday', 'fridayfreebie', 'competition',
+            'giveaways', 'cadeau', 'gratuit'
         ])
 
     app_log.notice('Quit App')
