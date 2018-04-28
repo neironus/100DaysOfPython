@@ -121,7 +121,10 @@ class Twitter(object):
     # List post
     def like_post(self, post):
         if self.does_post_need_like(post.full_text) or randint(0, 100) >= 90:
-            self.api.CreateFavorite(status_id=post.id)
+            try:
+                self.api.CreateFavorite(status_id=post.id)
+            except Exception as e:
+                twitter_log.exception(e)
 
     # Does need to tag friends?
     def does_i_need_tag_friend(self, text):
