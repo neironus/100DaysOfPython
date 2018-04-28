@@ -174,7 +174,7 @@ class Twitter(object):
     # Post a tweet, if answer_post_id specified will answer to this post
     def post_tweet(self, status, post_owner=None, answer_post_id=None):
         if post_owner:
-            status = '@{} {}'.format(post_owner, status)
+            status = '@{} {} '.format(post_owner, status)
 
         self.api.PostUpdate(
             status=status, in_reply_to_status_id=answer_post_id
@@ -209,16 +209,18 @@ class Twitter(object):
 
     # Reply to post
     def reply_post(self, post):
+        reply = self.db.get_random_row('replies')
+
         if self.does_i_need_tag_friend(post.full_text):
             friends = self.get_friends()
             if friends:
                 self.post_tweet(
-                    '{} :)'.format(" ".join(friends)), post.user.screen_name,
+                    '{} {}'.format(reply.get('reply'), " ".join(friends)),
+                    post.user.screen_name,
                     post.id
                 )
         else:
             if self._does_i_reply():
-                reply = self.db.get_random_row('replies')
                 self.post_tweet(
                     reply.get('reply'), post.user.screen_name, post.id
                 )
