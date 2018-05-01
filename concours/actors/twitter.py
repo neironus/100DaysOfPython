@@ -217,8 +217,7 @@ class Twitter(object):
         if self.does_i_need_tag_friend(post.full_text):
             reply = self.db.get_random_row('replies')
             friends = self.get_friends()
-            print(post.full_text)
-            return
+
             if friends:
                 self.post_tweet(
                     '{} {}'.format(reply.get('reply'), " ".join(friends)),
