@@ -208,6 +208,7 @@
     Format string
     Open url in browser
     NamedTuple
+    Web scrapping with BeautifulSoup4
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
