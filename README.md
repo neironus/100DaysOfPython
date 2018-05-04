@@ -203,6 +203,12 @@
 ### Day 46
     Concours project
 
+### Day 47
+    Search api / JSON
+    Format string
+    Open url in browser
+    NamedTuple
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
@@ -215,5 +221,6 @@
 [https://codechalleng.es](https://codechalleng.es)
 [https://www.programiz.com/python-programming/set](Set operations)
 [https://www.youtube.com/watch?v=OSGv2VnC0go](Transforming Code into Beautiful, Idiomatic Python)
+[https://pyformat.info/](PyFormat)
 
 Thanks to [http://twitch.tv/r_you_practing_ahegao_q_](r_you_practing_ahegao_q_)
