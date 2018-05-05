@@ -1,3 +1,4 @@
 .env
 config.py
 accounts.json
+logs

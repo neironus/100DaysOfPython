@@ -1,6 +1,24 @@
 from actors.twitter import Twitter
 import config as cfg
 import json
+import logbook
+
+app_log = logbook.Logger('APP')
+
+
+def init_logging():
+    level = logbook.TRACE
+
+    logbook.TimedRotatingFileHandler(
+        'logs/logs.log', level=level
+    ).push_application()
+
+    msg = 'Startup - Logging initialized, level: {}, mode: {}'.format(
+        level,
+        'file mode: logs.log'
+    )
+
+    app_log.notice(msg)
 
 
 def add_in_file(filename, text):
@@ -14,6 +32,7 @@ def read_from_file(filename):
 
 
 def main():
+    init_logging()
     t = Twitter(
         cfg.twitter.get('consumer_key'), cfg.twitter.get('consumer_secret'),
         cfg.twitter.get('access_token'),
@@ -25,6 +44,7 @@ def main():
     for id, followers in accounts.items():
         if len(followers) == 0:
             results = t.search(id)
+            app_log.notice('For {} - {}'.format(id, results))
             datas[str(id)] = results
             for account in results:
                 datas[str(account)] = []
