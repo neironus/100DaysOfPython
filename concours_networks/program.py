@@ -21,9 +21,9 @@ def init_logging():
     app_log.notice(msg)
 
 
-def add_in_file(filename, text):
-    with open(filename, 'w') as file:
-        file.write('{}'.format(text))
+def save_json(variable, filename):
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(unicode(json.dumps(variable, indent=4, ensure_ascii=False)))
 
 
 def read_from_file(filename):
@@ -39,19 +39,18 @@ def main():
         cfg.twitter.get('access_token_secret')
     )
 
-    accounts = read_from_file('accounts.json')
-    datas = {}
-    for id, followers in accounts.items():
-        # if len(followers) == 0:
-            results = t.search(id)
-            app_log.notice('For {} - {}'.format(id, results))
-            datas[str(id)] = None if len(results) == 0 else results
-            for account in results:
-                datas[str(account)] = []
-        # else:
-        #     datas[str(id)] = followers
-    else:
-        add_in_file('accounts.json', json.dumps(datas))
+    # accounts = read_from_file('accounts.json')
+    # datas = {}
+    # for id, followers in accounts.items():
+    #     # if len(followers) == 0:
+    #     results = t.search(id)
+    #     return
+    #     app_log.notice('For {} - {}'.format(id, results))
+    #     datas[str(id)] = None if len(results) == 0 else results
+    #     for account in results:
+    #         datas[str(account)] = []
+
+    #     save_json('accounts.json', datas)
 
 
 if __name__ == '__main__':

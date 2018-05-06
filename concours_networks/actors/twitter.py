@@ -12,6 +12,21 @@ class Twitter(object):
             sleep_on_rate_limit=True
         )
 
+    def query_accounts_informations(self, ids):
+        batch_len = 100
+        batches = (ids[i:i + batch_len] for i in range(
+            0, len(ids), batch_len))
+        users = []
+        for idx, batch in enumerate(batches):
+            print('Batch {}'.format(idx))
+            print(batch)
+            users_list = self.api.UsersLookup(user_id=batch)
+            users += [
+                user for user in users_list if self.interesting_user(user)
+            ]
+
+        return users
+
     def interesting_user(self, user):
         return self.does_contain_keywords(user)
 
@@ -19,7 +34,15 @@ class Twitter(object):
         return re.search('#(.+)NoFake|legit', user.description)
 
     def search(self, user_id):
-        followers = self.api.GetFollowers(user_id=user_id)
-        friends = self.api.GetFriends(user_id=user_id)
-        datas = list(set(followers) | set(friends))
-        return [user.id for user in datas if self.interesting_user(user)]
+        followers = self.api.GetFollowerIDs(user_id=user_id)
+        friends = self.api.GetFriendIDs(user_id=user_id)
+        ids = list(set(followers) | set(friends))
+        return self.query_accounts_informations(ids)
+
+
+    def test(self):
+        self.query_accounts_informations([783636174560722944, 963771131097329667])
+        # datas = self.api.UsersLookup(user_id=[783636174560722944, 963771131097329667])
+        # for user in datas:
+        #     print(user.description)
+        #     print('\n\n\n')
