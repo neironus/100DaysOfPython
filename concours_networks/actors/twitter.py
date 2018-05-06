@@ -20,4 +20,6 @@ class Twitter(object):
 
     def search(self, user_id):
         followers = self.api.GetFollowers(user_id=user_id)
-        return [user.id for user in followers if self.interesting_user(user)]
+        friends = self.api.GetFriends(user_id=user_id)
+        datas = list(set(followers) | set(friends))
+        return [user.id for user in datas if self.interesting_user(user)]
