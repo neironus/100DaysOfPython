@@ -42,14 +42,14 @@ def main():
     accounts = read_from_file('accounts.json')
     datas = {}
     for id, followers in accounts.items():
-        if len(followers) == 0:
+        # if len(followers) == 0:
             results = t.search(id)
             app_log.notice('For {} - {}'.format(id, results))
-            datas[str(id)] = results
+            datas[str(id)] = None if len(results) == 0 else results
             for account in results:
                 datas[str(account)] = []
-        else:
-            datas[str(id)] = followers
+        # else:
+        #     datas[str(id)] = followers
     else:
         add_in_file('accounts.json', json.dumps(datas))
 
