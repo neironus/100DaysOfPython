@@ -1,6 +1,6 @@
 .env
 config.py
-accounts.json
+*.json
 logs
 *.csv
 *.gephi
