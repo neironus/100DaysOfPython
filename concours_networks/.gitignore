@@ -2,3 +2,5 @@
 config.py
 accounts.json
 logs
+*.csv
+*.gephi
