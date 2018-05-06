@@ -19,7 +19,6 @@ class Twitter(object):
         users = []
         for idx, batch in enumerate(batches):
             print('Batch {}'.format(idx))
-            print(batch)
             users_list = self.api.UsersLookup(user_id=batch)
             users += [
                 user for user in users_list if self.interesting_user(user)
