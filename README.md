@@ -210,6 +210,22 @@
     NamedTuple
     Web scrapping with BeautifulSoup4
 
+### Day 48
+    Mesuring perf with cProfile
+    ```python
+    import cProfile
+    profiler = cProfile.Profile()
+    profiler.disable()
+
+    def main():
+        profiler.enable()
+        profiler.disable()
+
+    if __name__ == '__main__':
+        profiler.print_stats(sort='cumtime')
+    ```
+
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
