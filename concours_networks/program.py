@@ -40,7 +40,7 @@ def main():
     )
 
     accounts = read_from_file('accounts.json')
-    datas = {}
+    datas = accounts.copy()
     for id, followers in accounts.items():
         if len(followers) == 0:
             results = t.search(id)
