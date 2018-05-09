@@ -225,6 +225,12 @@
         profiler.print_stats(sort='cumtime')
     ```
 
+### Day 49
+    FeedParser
+    Uplink
+
+### Day 50
+    Uplink
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
