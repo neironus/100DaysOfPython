@@ -36,9 +36,10 @@ class UserTweets(object):
         tweets = self.api.user_timeline(
             screen_name=self.handle,
             max_id=self.max_id,
+            count=NUM_TWEETS,
         )
 
-        return [Tweet(t.id_str, t.created_at, t.text) for t in tweets]
+        return (Tweet(t.id_str, t.created_at, t.text) for t in tweets)
 
     def _save_tweets(self):
         with open(self.output_file, 'w') as csvfile:
