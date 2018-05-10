@@ -232,6 +232,9 @@
 ### Day 50
     Uplink
 
+### Day 51
+    Tweepy - Challenge 4 of PyBites
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
