@@ -234,6 +234,7 @@
 
 ### Day 51
     Tweepy - Challenge 4 of PyBites
+    Challenge 5 of PyBites / Gensim / (Did not understand :D)
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
