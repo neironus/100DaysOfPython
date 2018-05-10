@@ -1,6 +1,7 @@
 from collections import namedtuple
 import csv
 import tweepy
+import os
 
 import config as cfg
 
@@ -16,7 +17,7 @@ class UserTweets(object):
     def __init__(self, handle, max_id=None):
         self.handle = handle
         self.max_id = max_id
-        self.output_file = '{}/{}.{}'.format(DEST_DIR, self.handle, EXT)
+        self.output_file = os.path.join(DEST_DIR, handle + '.csv')
 
         auth = tweepy.OAuthHandler(
             cfg.twitter.get('consumer_key'),
