@@ -44,9 +44,8 @@ class UserTweets(object):
     def _save_tweets(self):
         with open(self.output_file, 'w') as csvfile:
             writer = csv.writer(csvfile, delimiter=',')
-            writer.writerow(['id_str', 'created_at', 'text'])
-            for data in self._tweets:
-                writer.writerow(data)
+            writer.writerow(Tweet._fields)  # Get the fields from named tuple
+            writer.writerows(self._tweets)
 
     def __len__(self):
         return len(self._tweets)
