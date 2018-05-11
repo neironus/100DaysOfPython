@@ -236,6 +236,9 @@
     Tweepy - Challenge 4 of PyBites
     Challenge 5 of PyBites / Gensim / (Did not understand :D)
 
+### Day 52
+    Tweepy - find interesting follow - use sys.argv
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)

@@ -1,6 +1,7 @@
 import tweepy
 from collections import namedtuple
 import csv
+import sys
 
 import config as cfg
 
@@ -28,9 +29,6 @@ def save_follows():
 
 
 class FindInterestingUser(object):
-
-    def findByHashtag(self, keyword):
-        return self.findByKeyword('#{}'.format(keyword))
 
     def findByKeyword(self, keyword):
         tweets = api.search(
@@ -71,8 +69,12 @@ class FindInterestingUser(object):
 
 
 def main():
+    if len(sys.argv) != 2:
+        print('Need a keyword/hashtags')
+
+
     f = FindInterestingUser()
-    tweets = f.findByHashtag('python')
+    tweets = f.findByKeyword(sys.argv[1])
     for t in tweets:
         f.print_tweet(t)
     save_follows()
