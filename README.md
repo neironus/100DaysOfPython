@@ -239,6 +239,10 @@
 ### Day 52
     Tweepy - find interesting follow - use sys.argv
 
+### Day 53
+    Videos github api
+    Videos/Install/Config pycharm
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)

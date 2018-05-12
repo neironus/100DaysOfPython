@@ -2,3 +2,4 @@ test.py
 *.pyc
 .pytest_cache/
 .env
+.idea
