@@ -248,6 +248,7 @@
     App 1 - Hello world
     App 2 - Guess the number
     App 3 - Birthday diffs
+    App 4 - Journal
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
