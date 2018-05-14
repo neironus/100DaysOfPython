@@ -247,6 +247,7 @@
     Python kickstart videos by TalkPython
     App 1 - Hello world
     App 2 - Guess the number
+    App 3 - Birthday diffs
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
