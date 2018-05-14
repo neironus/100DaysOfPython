@@ -243,6 +243,11 @@
     Videos github api
     Videos/Install/Config pycharm
 
+### Day 54
+    Python kickstart videos by TalkPython
+    App 1 - Hello world
+    App 2 - Guess the number
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
