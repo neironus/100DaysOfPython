@@ -11,8 +11,15 @@ def print_header() -> None:
 
 
 def ask_for_number() -> int:
-    number = input('guess a number between {} and {} '.format(min_number, max_number))
-    return int(number)
+    number = input('guess a number between {} and {} '.format(
+        min_number, max_number))
+
+    try:
+        number = int(number)
+        return number
+    except Exception:
+        print('> Not a valid number')
+        return ask_for_number()
 
 
 def main():
