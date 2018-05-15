@@ -249,6 +249,9 @@
     App 2 - Guess the number
     App 3 - Birthday diffs
     App 4 - Journal
+    
+### Day 55
+    App 5 - Weather app (using web scrapping / beautifulsoup4)
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
