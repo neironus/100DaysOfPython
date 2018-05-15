@@ -252,6 +252,7 @@
     
 ### Day 55
     App 5 - Weather app (using web scrapping / beautifulsoup4)
+    App 6 - LOLCat Factory App
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
