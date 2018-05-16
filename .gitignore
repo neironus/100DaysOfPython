@@ -4,3 +4,5 @@ test.py
 .env
 .idea
 venv/
+datas/
+config.py

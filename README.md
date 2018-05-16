@@ -256,6 +256,7 @@
     
 ### Day 56
     Send mail with smtplib
+    Using Pyperclip for access to clipboard
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
