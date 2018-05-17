@@ -258,6 +258,9 @@
     Send mail with smtplib
     Using Pyperclip for access to clipboard
 
+### Day 57
+    Openpyxl
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
