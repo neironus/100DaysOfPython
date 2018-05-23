@@ -1,10 +1,27 @@
+import string
+from random import SystemRandom
+
 from flask import Flask, render_template, request, abort, redirect, url_for
 from collections import namedtuple
 
 app = Flask(__name__)
 
-articleTupple = namedtuple('Article', 'id title text')
-articles = []
+articleTupple = namedtuple('Article', 'idx title text')
+articles = {}
+
+
+def random_string(n=20):
+    return ''.join(
+        SystemRandom().choice(string.ascii_uppercase + string.digits) for
+        _ in range(n))
+
+
+def get_unused_idx(n):
+    idx = random_string(n)
+    if articles.get(idx):
+        return get_unused_idx(n)
+    else:
+        return idx
 
 @app.route('/')
 def index():
@@ -14,20 +31,11 @@ def index():
 @app.route('/articles', methods=['POST', 'GET'])
 def article():
     if request.method == 'POST':
+        idx = request.form['id'] if 'id' in request.form else get_unused_idx(20)
         title = request.form['title']
         text = request.form['text']
 
-        if request.form['id']:
-            idx = int(request.form['id'])-1
-            print(idx)
-            articles[idx] = articles[idx]._replace(title=title)
-            articles[idx] = articles[idx]._replace(text=text)
-        else:
-            articles.append(
-                articleTupple(
-                    len(articles)+1, title, text
-                )
-            )
+        articles[idx] = articleTupple(idx, title, text)
 
     return render_template('articles.html', articles=articles)
 
@@ -37,23 +45,23 @@ def create_article():
     return render_template('create_article.html')
 
 
-@app.route('/articles/edit/<int:article_id>', methods=['GET'])
+@app.route('/articles/edit/<string:article_id>', methods=['GET'])
 def edit_article(article_id):
-    try:
-        article = articles[article_id-1]
-        return render_template('create_article.html', article=article)
-    except Exception:
+    if articles.get(article_id):
+        return render_template(
+            'create_article.html', article=articles.get(article_id)
+        )
+    else:
         abort(404)
 
 
-@app.route('/articles/remove/<int:article_id>', methods=['GET'])
+@app.route('/articles/remove/<string:article_id>', methods=['GET'])
 def remove_article(article_id):
-    try:
-        article = articles[article_id-1]
-        articles.remove(article)
 
+    if articles.get(article_id):
+        articles.pop(article_id)
         return redirect(url_for('article'))
-    except Exception:
+    else:
         abort(404)
 
 

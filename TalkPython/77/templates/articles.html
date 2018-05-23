@@ -6,15 +6,15 @@
 
 {% block content %}
     <div>
-        {% for article in articles %}
+        {% for idx, article in articles.items() %}
             <div class="article">
                 <h2 class="title">{{ article.title }}</h2>
                 <div>
                     {{ article.text }}
                 </div>
                 <div class="bottom">
-                    <a href="{{ url_for('edit_article', article_id=article.id) }}">Edit</a>
-                    <a href="{{ url_for('remove_article', article_id=article.id) }}">Delete</a>
+                    <a href="{{ url_for('edit_article', article_id=article.idx) }}">Edit</a>
+                    <a href="{{ url_for('remove_article', article_id=article.idx) }}">Delete</a>
                 </div>
             </div>
         {% else %}

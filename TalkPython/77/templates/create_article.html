@@ -4,16 +4,22 @@
 {% block title_page %}Create an article{% endblock %}
 
 {% block content %}
-    <form action="/articles" method="post">
-        <div>
-            <input type="text" name="title" value="{% if article %}{{ article.title }}{% endif %}"/>
+    <form action="{{ url_for('article') }}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" id="title" name="title" value="{% if article %}{{ article.title }}{% endif %}"/>
+        </div>
+        <div class="form-group">
+            <label for="text">Text</label>
+            <textarea class="form-control" name="text" id="text">{% if article %}{{ article.text }}{% endif %}</textarea>
         </div>
         <div>
-            <textarea name="text">{% if article %}{{ article.text }}{% endif %}</textarea>
-        </div>
-        <div>
-            <input type="hidden" name="id" value="{% if article %}{{ article.id }}{% endif %}" />
-            <input type="submit" value="Add">
+            {% if article %}
+                <input type="hidden" name="id" value="{% if article %}{{ article.idx }}{% endif %}" />
+                <input type="submit" value="Edit">
+            {% else %}
+                <input type="submit" value="Add">
+            {% endif %}
         </div>
     </form>
 {% endblock %}
