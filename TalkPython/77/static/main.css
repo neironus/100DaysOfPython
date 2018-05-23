@@ -5,6 +5,7 @@
 
 .article {
     padding: 20px;
+    padding-bottom: 0px;
     background-color: lightgray;
     margin-bottom: 20px;
 }
@@ -13,3 +14,11 @@
     color: deeppink;
     margin-bottom: 20px;
 }
+
+.article .bottom {
+    margin-top: 10px;
+    padding-bottom: 5px;
+    font-size: 11px;
+    text-transform: lowercase;
+}
+

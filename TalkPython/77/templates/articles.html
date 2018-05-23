@@ -12,6 +12,10 @@
                 <div>
                     {{ article.text }}
                 </div>
+                <div class="bottom">
+                    <a href="{{ url_for('edit_article', article_id=article.id) }}">Edit</a>
+                    <a href="{{ url_for('remove_article', article_id=article.id) }}">Delete</a>
+                </div>
             </div>
         {% else %}
             No articles
