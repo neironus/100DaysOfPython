@@ -263,6 +263,9 @@
     
 ### Day 58
     Selenium to Automate Tasks
+    
+### Day 59
+    Flask - Beers list choice, display dict in templates
 
 ## Useful links
 [http://nullege.com](http://nullege.com)

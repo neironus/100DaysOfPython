@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+    <title>My first flask app</title>
+</head>
+
+<body>
+    <h1>Hello worldd</h1>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Beers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, beer in fave_beer.items() %}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ beer}} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
