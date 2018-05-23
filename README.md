@@ -260,6 +260,9 @@
 
 ### Day 57
     Openpyxl
+    
+### Day 58
+    Selenium to Automate Tasks
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
