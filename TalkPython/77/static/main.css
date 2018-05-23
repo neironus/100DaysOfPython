@@ -1,0 +1,15 @@
+.title_page {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.article {
+    padding: 20px;
+    background-color: lightgray;
+    margin-bottom: 20px;
+}
+
+.article .title {
+    color: deeppink;
+    margin-bottom: 20px;
+}

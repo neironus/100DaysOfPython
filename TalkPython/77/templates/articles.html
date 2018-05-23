@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}My articles{% endblock %}
+
+{% block title_page %}Articles{% endblock %}
+
+{% block content %}
+    <div>
+        {% for article in articles %}
+            <div class="article">
+                <h2 class="title">{{ article.title }}</h2>
+                <div>
+                    {{ article.text }}
+                </div>
+            </div>
+        {% else %}
+            No articles
+        {% endfor %}
+    </div>
+{% endblock %}
