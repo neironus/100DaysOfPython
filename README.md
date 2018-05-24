@@ -273,17 +273,29 @@
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
+
 [https://github.com/chriskiehl/Gooey](https://github.com/chriskiehl/Gooey)
+
 [http://pyvideo.org](http://pyvideo.org)
+
 [https://github.com/faif/python-patterns](https://github.com/faif/python-patterns)
+
 [https://github.com/norvig/pytudes](https://github.com/norvig/pytudes)
+
 [http://openbookproject.net/py4fun](http://openbookproject.net/py4fun)
+
 [https://github.com/satwikkansal/wtfPython](https://github.com/satwikkansal/wtfPython)
+
 [http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/)
+
 [https://codechalleng.es](https://codechalleng.es)
+
 [https://www.programiz.com/python-programming/set](Set operations)
-[https://www.youtube.com/watch?v=OSGv2VnC0go](Transforming Code into Beautiful, Idiomatic Python)
+
+[https://www.youtube.com/watch?v=OSGv2VnC0go](Transforming Code into Beautiful Idiomatic Python)
+
 [https://pyformat.info/](PyFormat)
+
 [https://exploreflask.com/en/latest/](ExploreFlask)
 
 Thanks to [http://twitch.tv/r_you_practing_ahegao_q_](r_you_practing_ahegao_q_)
