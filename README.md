@@ -284,5 +284,6 @@
 [https://www.programiz.com/python-programming/set](Set operations)
 [https://www.youtube.com/watch?v=OSGv2VnC0go](Transforming Code into Beautiful, Idiomatic Python)
 [https://pyformat.info/](PyFormat)
+[https://exploreflask.com/en/latest/](ExploreFlask)
 
 Thanks to [http://twitch.tv/r_you_practing_ahegao_q_](r_you_practing_ahegao_q_)
