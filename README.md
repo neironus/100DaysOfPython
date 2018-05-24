@@ -267,6 +267,9 @@
 ### Day 59
     Flask - Beers list choice, display dict in templates
     Flask - Templating - POST/GET route / Namming route
+    
+### Day 60
+    SQLite3
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
