@@ -23,6 +23,7 @@ def get_unused_idx(n):
     else:
         return idx
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
