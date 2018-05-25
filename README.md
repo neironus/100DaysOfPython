@@ -270,6 +270,10 @@
     
 ### Day 60
     SQLite3
+    
+### Day 61
+    Flask with SQLite3, using SQLAlchemy/WTForms
+
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
