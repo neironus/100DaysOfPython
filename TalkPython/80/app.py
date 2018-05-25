@@ -8,7 +8,9 @@ db.init_app(app)
 
 # Blueprints
 from days.views import days
+from subjects.views import subjects
 app.register_blueprint(days)
+app.register_blueprint(subjects)
 
 
 @app.route('/')
