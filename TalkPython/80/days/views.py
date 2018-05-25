@@ -4,14 +4,14 @@ from flask import Blueprint, render_template, request, redirect, url_for, \
 from .forms import *
 from .models import Day, db
 
-days = Blueprint('days', __name__, template_folder='templates',
-                 static_folder='static', url_prefix='/days')
+days = Blueprint('days', __name__, static_folder='static',
+                 template_folder='templates', url_prefix='/days')
 
 
 @days.route('/')
 def index():
     datas = Day.query.all()
-    return render_template('days.html', datas=datas)
+    return render_template('days/index.html', datas=datas)
 
 
 @days.route('/create', methods=['GET', 'POST'])
@@ -24,7 +24,7 @@ def create():
         db.session.commit()
         return redirect(url_for('days.index'))
 
-    return render_template('days_create.html', form=form)
+    return render_template('days/create.html', form=form)
 
 
 @days.route('/edit/<int:id_day>', methods=['GET', 'POST'])
@@ -42,5 +42,5 @@ def edit(id_day):
 
         return redirect(url_for('days.index'))
 
-    return render_template('days_create.html', form=form)
+    return render_template('days/edit.html', form=form)
 
