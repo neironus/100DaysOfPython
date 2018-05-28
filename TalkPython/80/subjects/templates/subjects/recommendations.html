@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Recommendations{% endblock %}
+{% block title_page %}Recommendations{% endblock %}
+
+{% block content %}
+    <div>
+        <h3>Which party are for ?</h3>
+        <form method="post" action="#">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                 {{ form.party_ids(class_="form-control") }}
+            </div>
+
+            <div>
+                {{ form.id }}
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+{% endblock %}

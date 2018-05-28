@@ -13,6 +13,7 @@
 
     <div class="footer-content">
         <a href="{{ url_for('subjects.edit', id_subject=subject.id) }}">Edit</a> -
-        <a href="{{ url_for('subjects.delete', id_subject=subject.id) }}">Delete</a>
+        <a href="{{ url_for('subjects.delete', id_subject=subject.id) }}">Delete</a> -
+        <a href="{{ url_for('subjects.recommendations', id_subject=subject.id) }}">Edit recommendations</a>
     </div>
 {% endblock %}

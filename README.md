@@ -274,6 +274,8 @@
 ### Day 61
     Flask with SQLite3, using SQLAlchemy/WTForms
 
+### Day 62
+    Flask
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
