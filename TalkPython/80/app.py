@@ -6,6 +6,7 @@ app.config.from_object('config')
 app.config['SQLALCHEMY_DATABASE_URI'] = app.config['DATABASE_PATH']
 db.init_app(app)
 
+
 # Blueprints
 from days.views import days
 from subjects.views import subjects

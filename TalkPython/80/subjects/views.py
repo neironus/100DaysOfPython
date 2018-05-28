@@ -2,11 +2,21 @@ from flask import Blueprint, render_template, request, redirect, url_for, \
     abort
 
 from .forms import *
-from .models import Subject, db
+from models import Subject, db
 
 
 subjects = Blueprint('subjects', __name__, static_folder='static',
-                    template_folder='templates', url_prefix='/subjects')
+                     template_folder='templates', url_prefix='/subjects')
+
+
+@subjects.route('/<int:id_subject>', methods=['GET'])
+def view(id_subject):
+    subject = Subject.query.filter_by(id=id_subject).first()
+
+    if not subject:
+        abort(404)
+
+    return render_template('subjects/view.html', subject=subject)
 
 
 @subjects.route('/create', methods=['GET', 'POST'])
@@ -14,28 +24,36 @@ def create():
     form = AddForm(request.form)
 
     if form.validate_on_submit():
-        day = Subject(name=form.name.data)
-        db.session.add(day)
+        subject = Subject(name=form.name.data, day_id=form.day_id.data.id)
+        db.session.add(subject)
         db.session.commit()
-        return redirect(url_for('subjects.index'))
+        return redirect(url_for('subjects.view', id_subject=subject.id))
 
     return render_template('subjects/create.html', form=form)
 
 
-@subjects.route('/edit/<int:id_day>', methods=['GET', 'POST'])
-def edit(id_day):
-    day = Subject.query.filter_by(id=id_day).first()
+@subjects.route('/edit/<int:id_subject>', methods=['GET', 'POST'])
+def edit(id_subject):
+    subject = Subject.query.filter_by(id=id_subject).first_or_404()
 
-    if not day:
-        abort(404)
-
-    form = EditForm(request.form, obj=day)
+    form = EditForm(request.form, obj=subject)
 
     if form.validate_on_submit():
-        day.name = form.name.data
+        subject.name = form.name.data
+        subject.day_id = form.day_id.data.id
         db.session.commit()
 
-        return redirect(url_for('subjects.index'))
+        return redirect(url_for('subjects.view', id_subject=subject.id))
 
     return render_template('subjects/edit.html', form=form)
+
+
+@subjects.route('/delete/<int:id_subject>', methods=['GET'])
+def delete(id_subject):
+    subject = Subject.query.filter_by(id=id_subject).first_or_404()
+
+    db.session.delete(subject)
+    db.session.commit()
+
+    return redirect(url_for('days.index'))
 

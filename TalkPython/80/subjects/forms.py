@@ -4,7 +4,8 @@ from wtforms import StringField, IntegerField, SubmitField, SelectField,\
 from wtforms.widgets import HiddenInput
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 
-from days.models import Day
+from models import Day
+
 
 
 def list_days():
@@ -13,8 +14,7 @@ def list_days():
 
 class AddForm(FlaskForm):
     name = StringField('Name', [validators.DataRequired()])
-    # day = SelectField('Day', coerce=int, choices=days)
-    day = QuerySelectField('Day', query_factory=list_days, get_label='name')
+    day_id = QuerySelectField('Day', query_factory=list_days, get_label='name')
     submit = SubmitField('Add')
 
 

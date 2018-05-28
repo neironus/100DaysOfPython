@@ -9,6 +9,13 @@
     {% for day in datas %}
         <li>
             <a href="{{ url_for('days.edit', id_day=day.id) }}">{{ day.name }}</a>
+            {% if day.subjects %}
+                <ul>
+                    {% for subject in day.subjects %}
+                        <li><a href="{{ url_for('subjects.view', id_subject=subject.id )}}">{{ subject.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </li>
     {% else %}
         <li><h3>No days</h3></li>
