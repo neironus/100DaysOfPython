@@ -1,0 +1,13 @@
+<div>
+    <form method="post" action="#">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.name.label }} {{ form.name(class_="form-control") }}
+        </div>
+
+        <div>
+            {{ form.id }}
+            {{ form.submit }}
+        </div>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ url_for('parties.static', filename='style.css') }}">
+{% endblock %}
+
+{% block title %}Parties{% endblock %}
+
+{% block title_page %}Parties{% endblock %}
+
+{% block content %}
+    <div class="list-parties">
+        <ul>
+        {% for party in datas %}
+            <li>
+                <a href="{{ url_for('parties.edit', id_party=party.id) }}">{{ party.name }}</a>
+                <div class="footer-content">
+                    <a href="{{ url_for('parties.edit', id_party=party.id) }}">Edit</a> -
+                    <a href="{{ url_for('parties.delete', id_party=party.id) }}">Delete</a>
+                </div>
+            </li>
+        {% else %}
+            <li>
+                <h3>No parties</h3>
+                <a href="{{ url_for('parties.create') }}">Create one</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
