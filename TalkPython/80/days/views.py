@@ -1,5 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, \
-    abort
+from flask import Blueprint, render_template, request, redirect, url_for
 
 from .forms import *
 from models import db, Day

@@ -1,5 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, \
-    abort
+from flask import Blueprint, render_template, request, redirect, url_for
 
 from .forms import *
 from models import Subject, db
@@ -11,10 +10,7 @@ subjects = Blueprint('subjects', __name__, static_folder='static',
 
 @subjects.route('/<int:id_subject>', methods=['GET'])
 def view(id_subject):
-    subject = Subject.query.filter_by(id=id_subject).first()
-
-    if not subject:
-        abort(404)
+    subject = Subject.query.filter_by(id=id_subject).first_or_404()
 
     return render_template('subjects/view.html', subject=subject)
 
