@@ -276,6 +276,9 @@
 
 ### Day 62
     Flask
+    
+### Day 63
+    Data vizualitation - Plotly
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
