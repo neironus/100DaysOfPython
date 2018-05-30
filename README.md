@@ -282,6 +282,7 @@
 
 ### Day 64
     Data visualization - bokeh
+    Python jumpstart 7 - Class
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
