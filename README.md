@@ -278,7 +278,10 @@
     Flask
     
 ### Day 63
-    Data vizualitation - Plotly
+    Data visualization - Plotly
+
+### Day 64
+    Data visualization - bokeh
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
