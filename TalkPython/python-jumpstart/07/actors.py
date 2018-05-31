@@ -81,3 +81,8 @@ class Wizard(FierceFighter):
 
     def __init__(self, name, level=50):
         super().__init__(name, level)
+
+    def attack(self, creature):
+        self.level += 100
+
+        return super().attack(creature)
