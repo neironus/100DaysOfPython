@@ -3,6 +3,7 @@ from time import sleep
 from actors import Wizard, Dragon, SmallAnimal, FierceFighter, Creature
 from random import choice
 
+
 def print_header():
     print('--------------------------')
     print('     Wizard Game app')
@@ -33,6 +34,10 @@ def game_loop():
     hero = Wizard('Bob', level=75)
 
     while True:
+        if not creatures:
+            print_endgame()
+            break
+
         creature = choice(creatures)
 
         print()
@@ -55,6 +60,14 @@ def game_loop():
         else:
             print('OK leaving the game')
             break
+
+
+def print_endgame():
+    print()
+    print('---------------------------------')
+    print('All the monsters have been killed.')
+    print('---------------------------------')
+    print()
 
 
 def main():
