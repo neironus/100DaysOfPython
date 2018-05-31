@@ -14,6 +14,9 @@ class Creature(object):
         s_roll = self.roll()
         c_roll = creature.roll()
 
+        self.print_roll(s_roll)
+        creature.print_roll(c_roll)
+
         if s_roll > c_roll:
             self.print_winner(self, creature)
             return True
@@ -24,15 +27,8 @@ class Creature(object):
             print('No one die. It\'s a draw.')
             return False
 
-    def roll(self, roll=None) -> int:
-        if not roll:
-            roll = randint(6, 12)
-
-        roll = roll * self.level
-
-        print('{} rolls {}...'.format(self.name, roll))
-
-        return roll
+    def roll(self) -> int:
+        return randint(6, 12) * self.level
 
     @staticmethod
     def print_winner(creature1, creature2):
@@ -46,16 +42,17 @@ class Creature(object):
     def level(self, level):
         self._level = level
 
+    def print_roll(self, roll: int) -> None:
+        print('{} rolls {}...'.format(self.name, roll))
+
 
 class SmallAnimal(Creature):
 
     def __init__(self, name, level=1):
         super().__init__(name, level)
 
-    def roll(self, roll=None):
-        roll = randint(1, 3)
-
-        return super().roll(roll)
+    def roll(self):
+        return randint(1, 3) * self.level
 
 
 class FierceFighter(Creature):
@@ -70,11 +67,13 @@ class Dragon(FierceFighter):
         super().__init__(name, level)
 
     def roll(self, roll=None) -> int:
+        roll = super().roll()
+
         if randint(0, 10) > 8:
-            roll = randint(50, 100)
+            roll = randint(50, 100)*self.level
             print('{} critics'.format(self.name))
 
-        return super().roll(roll)
+        return roll
 
 
 class Wizard(FierceFighter):
