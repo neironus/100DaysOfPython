@@ -283,6 +283,9 @@
 ### Day 64
     Data visualization - bokeh
     Python jumpstart 7 - Class
+    
+### Day 65
+    Python jumpstart 8 - File searcher
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
