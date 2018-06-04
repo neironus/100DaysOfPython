@@ -286,6 +286,9 @@
     
 ### Day 65
     Python jumpstart 8 - File searcher
+    
+### Day 66
+    Install flask on prod server with Apache
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
