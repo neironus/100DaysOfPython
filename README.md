@@ -289,6 +289,13 @@
     
 ### Day 66
     Install flask on prod server with Apache
+    
+### Day 67
+    Flask and IRC with Twitch. Get tchat
+    Videos about anvil app 
+[http://anvil.works](http://anvil.works)
+
+
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
