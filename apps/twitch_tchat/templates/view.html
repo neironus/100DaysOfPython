@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-transform: uppercase;" class="text-center">{{ username }}</h1>
+    <div id="messages" data-username="{{ username }}"></div>
+{% endblock %}
+
+{% block custom_script %}
+    <script src="{{ url_for('static', filename='messages.js') }}"></script>
+{% endblock %}

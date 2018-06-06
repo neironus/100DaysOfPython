@@ -1,0 +1,9 @@
+#content .message p{
+    display: inline-block;
+    padding-right: 5px;
+}
+
+
+#username-form {
+    margin-top: 20px;
+}

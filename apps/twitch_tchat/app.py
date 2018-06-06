@@ -1,8 +1,8 @@
 import threading
 import time
 import requests
-from flask import Flask, render_template
-import t
+from flask import Flask, render_template, jsonify, request, redirect, url_for
+import twitch
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -10,8 +10,8 @@ app.config.from_object('config')
 
 @app.before_first_request
 def run_twitch():
-    t.init_twitch_connexion()
-    thread = threading.Thread(target=t.get_messages)
+    twitch.init_twitch_connexion()
+    thread = threading.Thread(target=twitch.get_messages)
 
     thread.start()
 
@@ -33,23 +33,28 @@ def start_runner():
     thread.start()
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return 'Hello world'
+    if request.method == 'POST':
+        username = request.form['username']
+        return redirect(url_for('view', username=username))
+
+    return render_template('index.html')
 
 
 @app.route('/<string:username>', methods=['GET'])
 def view(username):
-    t.join_channel('#'+username)
-    return username
+    twitch.join_channel('#' + username)
+    return render_template('view.html', username=username)
 
 
 @app.route('/msg/<string:username>', methods=['GET'])
-def lol(username):
+def msg(username):
     username = '#'+username
-    if username in t.channels_dict:
-        channel = t.channels_dict.get(username)
-        return render_template('messages.html', messages=channel.messages)
+
+    if username in twitch.channels_dict:
+        channel = twitch.channels_dict.get(username)
+        return jsonify(channel.get_messages())
     else:
         return 'Not found'
 

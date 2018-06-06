@@ -1,29 +1,51 @@
+import json
 import socket
 import threading
+import re
+import random
+from collections import namedtuple
 
 import config as cfg
-import re
+
+messageTuple = namedtuple('Message', 'username text color')
 
 s = socket.socket()
 channels_dict = {}
 channels_list = []
 
 
+def get_random_color():
+    return '#'+''.join([random.choice('ABCDEF0123456789') for _ in range(6)])
+
+
 class Channel(object):
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         self.messages = []
+        self.users_color = {}
 
-    def join(self):
+    def join(self) -> None:
         send_to_socket('join', self.name)
 
-    def add_message(self, message):
-        print('> message added')
-        self.messages.append(message)
+    def add_message(self, username: str, message: str) -> None:
+        if username in self.users_color:
+            color = self.users_color.get(username)
+        else:
+            color = get_random_color()
+            self.users_color[username] = color
+
+        msg = messageTuple(username, message, color)
+        self.messages.append(msg)
+
+    def get_messages(self):
+        messages = self.messages
+        self.messages = []
+
+        return [message._asdict() for message in messages]
 
 
-def send_to_socket(cmd, text):
+def send_to_socket(cmd: str, text: str) -> None:
     global s
     s.send(bytes(
         '{} {} \r\n'.format(cmd.upper(), text),
@@ -31,7 +53,7 @@ def send_to_socket(cmd, text):
     ))
 
 
-def init_twitch_connexion():
+def init_twitch_connexion() -> None:
     global s
     s.connect(
         (cfg.TWITCH.get('server'), cfg.TWITCH.get('port'))
@@ -39,19 +61,21 @@ def init_twitch_connexion():
     send_to_socket('pass', cfg.TWITCH.get('password'))
     send_to_socket('user', cfg.TWITCH.get('nickname'))
     send_to_socket('nick', cfg.TWITCH.get('nickname'))
-    # send_to_socket(s, 'join', '#soexit')
 
 
-def join_channel(channel):
+def join_channel(channel: str) -> None:
     if not channel.startswith('#'):
         channel = '#' + channel
+
+    if channel in channels_list:
+        return
 
     channel = Channel(name=channel)
 
     if len(channels_list) >= 5:
         c = channels_list.pop(0)
-        channels_dict.pop(c.name)
-        send_to_socket('part', c.name)
+        channels_dict.pop(c)
+        send_to_socket('part', c)
 
     channels_dict[channel.name] = channel
     channels_list.append(channel.name)
@@ -59,7 +83,7 @@ def join_channel(channel):
     send_to_socket('join', channel.name)
 
 
-def get_messages():
+def get_messages() -> None:
     while True:
         line = str(s.recv(1024))
         parts = line.split(':')
@@ -80,7 +104,7 @@ def get_messages():
 
         if channel_name:
             channel = channels_dict.get(channel_name)
-            channel.add_message('{}> {}'.format(username, message))
+            channel.add_message(username, message)
 
 
 if __name__ == '__main__':
