@@ -297,7 +297,7 @@
 
 ### Day 68
     Flask and IRC with Twitch.
-
+    Inventory APP
 
 
 ## Useful links
