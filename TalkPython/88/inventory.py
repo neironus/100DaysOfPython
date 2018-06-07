@@ -34,17 +34,26 @@ def scrub(name: str) -> str:
 
 
 def create_room(name: str) -> None:
-    name = scrub(name)
+    name = scrub(name.lower().strip())
+
+    if name in list_rooms():
+        print_answer('The room {} exist already.'.format(name))
+        return
+
+    if not name.strip():
+        print('The room name can\'t be empty.')
+        return
 
     with acces_db() as cursor:
         cursor.execute('CREATE TABLE '+name+' (item text, cost real)')
+        print_answer('Room created')
 
 
 def add_room() -> None:
     print('\r\n')
     name = input('Room name: ')
     create_room(name)
-    print_answer('Room created')
+
 
 
 # Get all the tables from sqlite
@@ -125,11 +134,10 @@ def view_inventory() -> None:
 
 
 def total_value() -> None:
-    rooms = list_rooms()
     total = 0
 
     with acces_db() as cursor:
-        for room in rooms:
+        for room in list_rooms():
             cursor.execute('SELECT * FROM "{}"'.format(room))
             for item in cursor:
                 total += item[1]
