@@ -1,24 +1,23 @@
 $(document).ready(function(){
+    var interval;
+
     getMessages = function() {
         $.ajax({
             url: '/msg/'+$('#messages').data('username')
-        }).done(function (messages) {
-            messages.forEach(function(message) {
-                var p = document.createElement('p');
-                $(p).css('color', message.color).text(message.username + '> ');
-
-                var div = document.createElement('div');
-                $(div).addClass('message').text(message.text);
-                $(div).prepend(p)
-                $('#messages').append(div)
-            })
-
-            $("html, body").animate({ scrollTop:
-                    $(document).height() }, "slow");
+        }).done(function (result) {
+            if(result.status) {
+                 $('#messages').append(result.content);
+                 $("html, body").animate(
+                     { scrollTop: $(document).height() }
+                 , "slow");
+            } else {
+                $('#messages').html('<div class="error">Not Found</div>')
+                clearInterval(interval)
+            }
         })
     }
 
-    setInterval(function(){
+    interval = setInterval(function(){
         getMessages()
     }, 500)
 })

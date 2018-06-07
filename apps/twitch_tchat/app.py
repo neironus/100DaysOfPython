@@ -54,9 +54,17 @@ def msg(username):
 
     if username in twitch.channels_dict:
         channel = twitch.channels_dict.get(username)
-        return jsonify(channel.get_messages())
+
+        return jsonify({
+            'status': True,
+            'content': render_template(
+                'messages.html', messages=channel.get_messages()),
+        })
     else:
-        return 'Not found'
+        return jsonify({
+            'status': False
+        })
+
 
 
 def main():

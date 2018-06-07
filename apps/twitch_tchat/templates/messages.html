@@ -1,0 +1,8 @@
+{% for message in messages %}
+    <div class="message">
+        <p style="color:{{ message.color }}">{{ message.username }}</p>
+        <p class="text">{{ message.text }}</p>
+    </div>
+{% endfor %}
+
+
