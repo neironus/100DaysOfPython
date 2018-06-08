@@ -299,6 +299,9 @@
     Flask and IRC with Twitch.
     Inventory APP
 
+### Day 69
+    SQLAlchemy
+    Guessing games saved in DB :x
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
