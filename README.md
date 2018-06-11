@@ -302,6 +302,10 @@
 ### Day 69
     SQLAlchemy
     Guessing games saved in DB :x
+    
+### Day 70
+    Building GUI with Gooey
+    Packaging the app with pyinstaller
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
@@ -329,5 +333,7 @@
 [https://pyformat.info/](PyFormat)
 
 [https://exploreflask.com/en/latest/](ExploreFlask)
+
+[https://github.com/chriskiehl/Gooey](Gooey)
 
 Thanks to [http://twitch.tv/r_you_practing_ahegao_q_](r_you_practing_ahegao_q_)
