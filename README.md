@@ -306,6 +306,7 @@
 ### Day 70
     Building GUI with Gooey
     Packaging the app with pyinstaller
+    Python jumpstart 9 - Real estate analyzer
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
