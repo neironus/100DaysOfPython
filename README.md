@@ -307,6 +307,10 @@
     Building GUI with Gooey
     Packaging the app with pyinstaller
     Python jumpstart 9 - Real estate analyzer
+    
+### Day 71
+    Tags_files project: Save tags/resources in db
+    
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
