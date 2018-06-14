@@ -41,7 +41,7 @@ class Guess(ModelBase):
     guess = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     guess_number = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     is_winning_guess = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
-    id_game = sqlalchemy.Column(sqlalchemy.Integer,
+    id_game = sqlalchemy.Column(sqlalchemy.String,
                                 sqlalchemy.ForeignKey('games.id'))
 
     game = relationship('Game', back_populates="guesses")
