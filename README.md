@@ -311,6 +311,8 @@
 ### Day 71
     Tags_files project: Save tags/resources in db
     
+### Day 72
+    Build api with flask / backend
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
