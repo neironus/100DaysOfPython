@@ -61,6 +61,11 @@ def validate_params_make_a_guess():
     if not id_player:
         raise Exception('no player id.')
 
+    try:
+        id_player = int(id_player)
+    except Exception:
+        raise Exception('incorrect id_player value.')
+
     if not gs.get_player(idx=id_player):
         raise Exception('player not found.')
 
@@ -70,14 +75,12 @@ def validate_params_make_a_guess():
         raise Exception('no game id.')
 
     game = gs.get_game(idx=id_game)
-    if not game:
-        raise Exception('game not found.')
+    if game:
+        if game.to_web().get('done'):
+            raise Exception('game done.')
 
-    if game.to_web().get('done'):
-        raise Exception('game done.')
-
-    if game.to_web().get('id_player') is not id_player:
-        raise Exception('this player can\'t play this game.')
+        if game.to_web().get('id_player') is not id_player:
+            raise Exception('this player can\'t play this game.')
 
     # Test guess
     guess = request.json.get('guess')
@@ -89,12 +92,21 @@ def validate_params_make_a_guess():
     except Exception:
         raise Exception('guess is not a valid value.')
 
+    if not 0 <= guess <= 100:
+        raise Exception('guess must be include/equal between 0 and 100')
+
+    return id_player, id_game, guess
+
 
 @app.route('/api/guess', methods=['POST'])
 def make_a_guess():
     try:
-        validate_params_make_a_guess()
-        return 'DO SOMETHING HERE'
+        id_player, id_game, guess = validate_params_make_a_guess()
+        gs.save_guess(guess=guess, id_game=id_game, id_player=id_player)
+
+        status = gs.get_status_last_guess(id_game)
+
+        return jsonify({'status': status})
 
     except Exception as e:
         return abort(Response(

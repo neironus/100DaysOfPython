@@ -1,3 +1,4 @@
+import random
 import uuid
 from collections import OrderedDict
 from typing import Optional
@@ -73,8 +74,14 @@ def create_player(name: str) -> Player:
     return get_player(name=name)
 
 
-def save_game(idx: str, id_player: int, answer: int) -> None:
-    game = Game(id=idx, id_player=id_player, answer=answer)
+def create_game(id_game: str, id_player: int) -> None:
+    """
+    Create a game with his id and id_player specified
+
+    :param id_game: The id of the game
+    :param id_player: The id of the player playing this game
+    """
+    game = Game(id=id_game, answer=random.randint(0, 100), id_player=id_player)
 
     session = session_factory()
     session.add(game)
@@ -82,14 +89,88 @@ def save_game(idx: str, id_player: int, answer: int) -> None:
     session.close()
 
 
-def save_guess(guess: int, guess_nb: int, won: bool, id_game: str) -> None:
-    guess = Guess(guess=guess, guess_number=guess_nb,
+def is_winning_guess(id_game: str, guess: int) -> bool:
+    """
+    Check if the guess if the answer for this game
+
+    :param id_game: Id of the game
+    :param guess: The player guess
+
+    :return: True if it's the answer False otherwise
+    """
+    session = session_factory()
+
+    game = session.query(Game).filter(Game.id == id_game).first()
+
+    return game.answer == guess
+
+
+def save_guess(guess: int, id_game: str, id_player: int) -> None:
+    """
+    Save the user guess
+    :param guess: The guess
+    :param id_game: The id of the game
+    :param id_player: The id of the player
+    """
+    session = session_factory()
+
+    game = session.query(Game).filter(Game.id == id_game).first()
+    if not game:
+        create_game(id_game, id_player)
+
+    last_guess = get_last_guess_of_game(id_game)
+    if not last_guess:
+        guess_count = 1
+    else:
+        guess_count = last_guess.guess_count + 1
+
+    won = is_winning_guess(id_game, guess)
+
+    guess = Guess(guess=guess, guess_count=guess_count,
                   is_winning_guess=won, id_game=id_game)
 
-    session = session_factory()
     session.add(guess)
     session.commit()
     session.close()
+
+
+def get_last_guess_of_game(id_game: str) -> Guess:
+    """
+    Get the last guess of the game specified
+
+    :param id_game: The id of the game
+
+    :return: The guess
+    """
+    session = session_factory()
+
+    guess = session.query(Guess).filter(Guess.id_game == id_game) \
+        .order_by(Guess.id.desc()).first()
+
+    session.close()
+
+    return guess
+
+
+def get_status_last_guess(id_game: str) -> int:
+    """
+    Ge the status for the last guess, if the guess was lower/higher/same of the
+    answer
+
+    :param id_game: Id of the game
+
+    :return: 0 for lower, 1 for correct, 2 for higher
+    """
+    game = get_game(id_game)
+    guess = get_last_guess_of_game(id_game)
+
+    print(game.answer, guess.guess)
+    if guess.guess < game.answer:
+        return 0
+    elif guess.is_winning_guess:
+        return 1
+    else:
+        return 2
 
 
 def get_stats():

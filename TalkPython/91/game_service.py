@@ -73,3 +73,6 @@ def get_stats():
     session.close()
 
     return stats
+
+
+
