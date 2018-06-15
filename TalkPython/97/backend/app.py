@@ -19,10 +19,7 @@ def index():
 
 @app.route('/api/user/<string:name>', methods=['GET'])
 def get_user(name: str):
-    player = gs.get_player(name=name)
-
-    if not player:
-        return abort(404)
+    player = gs.find_or_create_player(name=name)
 
     return jsonify(player.to_web())
 
