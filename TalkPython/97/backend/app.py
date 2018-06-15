@@ -53,35 +53,49 @@ def validate_params_make_a_guess():
     """
     Validate the make a guess params
     """
-    print('56')
     if not request.json:
-        raise Exception('no JSON body')
+        raise Exception('no JSON body.')
 
+    # Test id player
     id_player = request.json.get('id_player')
     if not id_player:
-        raise Exception('no player id')
+        raise Exception('no player id.')
 
     if not gs.get_player(idx=id_player):
-        raise Exception('layer not found')
+        raise Exception('player not found.')
 
+    # Test id game
     id_game = request.json.get('id_game')
     if not id_game:
-        raise Exception('no game id')
+        raise Exception('no game id.')
 
     game = gs.get_game(idx=id_game)
     if not game:
-        raise Exception('game not found')
+        raise Exception('game not found.')
 
-    print(game.to_web())
-    raise Exception('yolo')
+    if game.to_web().get('done'):
+        raise Exception('game done.')
+
+    if game.to_web().get('id_player') is not id_player:
+        raise Exception('this player can\'t play this game.')
+
+    # Test guess
+    guess = request.json.get('guess')
+    if not guess:
+        raise Exception('no guess provided.')
+
+    try:
+        guess = int(guess)
+    except Exception:
+        raise Exception('guess is not a valid value.')
 
 
 @app.route('/api/guess', methods=['POST'])
 def make_a_guess():
     try:
         validate_params_make_a_guess()
-        
-        return 'yes'
+        return 'DO SOMETHING HERE'
+
     except Exception as e:
         return abort(Response(
             response='Invalid request : {}'.format(e),
