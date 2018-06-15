@@ -17,8 +17,9 @@ class Game(ModelBase):
 
     @property
     def is_done(self):
-        print(self.guesses)
-        return True
+        return True if \
+            [guess for guess in self.guesses if guess.is_winning_guess] \
+            else False
 
     def to_web(self):
         """
