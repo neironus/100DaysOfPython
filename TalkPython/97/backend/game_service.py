@@ -126,6 +126,6 @@ def get_game(idx: str) -> Optional[Game]:
     session = session_factory()
     game = session.query(Game).filter(Game.id == idx).first()
 
-    # session.close()
+    session.close()
 
     return game

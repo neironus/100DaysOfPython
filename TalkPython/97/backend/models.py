@@ -13,7 +13,7 @@ class Game(ModelBase):
     answer = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     id_player = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
 
-    guesses = relationship('Guess', back_populates='game')
+    guesses = relationship('Guess', back_populates='game', lazy="joined")
 
     @property
     def is_done(self):
