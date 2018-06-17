@@ -312,7 +312,10 @@
     Tags_files project: Save tags/resources in db
     
 ### Day 72
-    Build api with flask / backend
+    Guessing Game - Build api with flask / backend
+    
+### Day 73
+    Guessing Game - Tests API
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
