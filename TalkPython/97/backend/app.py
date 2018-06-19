@@ -5,7 +5,7 @@ from flask import Flask, jsonify, abort, request, Response
 import game_service as gs
 
 app = Flask(__name__)
-app.config.from_object('config')
+app.config.from_object('config.DevelopmentConfig')
 
 
 def main():

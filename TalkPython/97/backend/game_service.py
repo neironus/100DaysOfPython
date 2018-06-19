@@ -81,7 +81,7 @@ def create_game(id_game: str, id_player: int) -> None:
     :param id_game: The id of the game
     :param id_player: The id of the player playing this game
     """
-    game = Game(id=id_game, answer=random.randint(0, 100), id_player=id_player)
+    game = Game(id=id_game, answer=random.randint(1, 100), id_player=id_player)
 
     session = session_factory()
     session.add(game)
@@ -164,7 +164,6 @@ def get_status_last_guess(id_game: str) -> int:
     game = get_game(id_game)
     guess = get_last_guess_of_game(id_game)
 
-    print(game.answer, guess.guess)
     if guess.guess < game.answer:
         return 0
     elif guess.is_winning_guess:
