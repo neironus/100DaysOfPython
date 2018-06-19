@@ -1,20 +1,10 @@
 import os
 import sqlalchemy
+from flask import current_app
 
 from models import ModelBase
 
 __factory = None
-
-
-def get_db_path(filename: str) -> str:
-    """
-    Get the db full path
-
-    :param filename: Name of the db
-    """
-
-    dir_path = os.path.dirname(__file__)
-    return os.path.join(dir_path, filename)
 
 
 def global_init():
@@ -23,8 +13,7 @@ def global_init():
     """
     global __factory
 
-    full_file = get_db_path('guessing.db')
-    conn_str = 'sqlite:///' + full_file
+    conn_str = 'sqlite://' + current_app.config['DATABASE_URI']
 
     engine = sqlalchemy.create_engine(conn_str, echo=False)
     ModelBase.metadata.create_all(engine)
