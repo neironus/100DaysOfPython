@@ -89,8 +89,8 @@ def validate_params_make_a_guess():
     except Exception:
         raise Exception('guess is not a valid value.')
 
-    if not 0 <= guess <= 100:
-        raise Exception('guess must be include/equal between 0 and 100')
+    if not 1 <= guess <= 100:
+        raise Exception('guess must be include/equal between 1 and 100')
 
     return id_player, id_game, guess
 

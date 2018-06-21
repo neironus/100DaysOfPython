@@ -316,6 +316,13 @@
     
 ### Day 73
     Guessing Game - Tests API
+    
+### Day 74
+    Bites 101 of Pybites - f-strings and a simple if/else
+    Bites 102 of Pybites - Infinite loop, input, continue and break 
+    Bites 103 of Pybites - Loop through a dictionary and pluralise a word 
+    Bites 104 of Pybites - Split and join  
+    Bites 105 of PyBites - Slice and dice
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
