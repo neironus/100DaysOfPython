@@ -323,6 +323,7 @@
     Bites 103 of Pybites - Loop through a dictionary and pluralise a word 
     Bites 104 of Pybites - Split and join  
     Bites 105 of PyBites - Slice and dice
+    Bites 106 of PyBites - Strip out vowels and count the number of replacements 
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
