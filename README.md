@@ -324,7 +324,8 @@
     Bites 104 of Pybites - Split and join  
     Bites 105 of PyBites - Slice and dice
     Bites 106 of PyBites - Strip out vowels and count the number of replacements 
-
+    Bites 107 of PyBites - Filter numbers with a list comprehension 
+    
 ## Useful links
 [http://nullege.com](http://nullege.com)
 
