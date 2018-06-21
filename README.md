@@ -326,6 +326,7 @@
     Bites 106 of PyBites - Strip out vowels and count the number of replacements 
     Bites 107 of PyBites - Filter numbers with a list comprehension 
     Bites 108 of PyBites - Loop over a dict of namedtuples calculating a total score 
+    Bites 109 of PyBites - Workout dict lookups and raising an exception  
     
     
 ## Useful links
