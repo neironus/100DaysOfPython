@@ -75,7 +75,7 @@ def most_expensive(purchases: List[Purchase]) -> None:
     ))
 
 
-def less_expensive(purchases: List[Purchase]) -> None:
+def least_expensive(purchases: List[Purchase]) -> None:
     """
     Print the cheapest purchase
 
@@ -161,7 +161,7 @@ def main():
 
     most_expensive(purchases)
     print()
-    less_expensive(purchases)
+    least_expensive(purchases)
     print()
     average_purchase(purchases)
     print()
