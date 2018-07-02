@@ -147,7 +147,7 @@ def average_2_bedrooms(purchases: List[Purchase]) -> None:
     :rtype: None
     """
     avg = calc_average_purchases(
-        [purchase for purchase in purchases if purchase.beds == 2]
+        (purchase for purchase in purchases if purchase.beds == 2)
     )
 
     print('Average 2-bedroom purchase: ${:.0f}, {:.1f} bed, {:.1f} bath.'
