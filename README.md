@@ -249,50 +249,50 @@
     App 2 - Guess the number
     App 3 - Birthday diffs
     App 4 - Journal
-    
+
 ### Day 55
     App 5 - Weather app (using web scrapping / beautifulsoup4)
     App 6 - LOLCat Factory App
-    
+
 ### Day 56
     Send mail with smtplib
     Using Pyperclip for access to clipboard
 
 ### Day 57
     Openpyxl
-    
+
 ### Day 58
     Selenium to Automate Tasks
-    
+
 ### Day 59
     Flask - Beers list choice, display dict in templates
     Flask - Templating - POST/GET route / Namming route
-    
+
 ### Day 60
     SQLite3
-    
+
 ### Day 61
     Flask with SQLite3, using SQLAlchemy/WTForms
 
 ### Day 62
     Flask
-    
+
 ### Day 63
     Data visualization - Plotly
 
 ### Day 64
     Data visualization - bokeh
     Python jumpstart 7 - Class
-    
+
 ### Day 65
     Python jumpstart 8 - File searcher
-    
+
 ### Day 66
     Install flask on prod server with Apache
-    
+
 ### Day 67
     Flask and IRC with Twitch. Get tchat
-    Videos about anvil app 
+    Videos about anvil app
 [http://anvil.works](http://anvil.works)
 
 ### Day 68
@@ -302,34 +302,36 @@
 ### Day 69
     SQLAlchemy
     Guessing games saved in DB :x
-    
+
 ### Day 70
     Building GUI with Gooey
     Packaging the app with pyinstaller
     Python jumpstart 9 - Real estate analyzer
-    
+
 ### Day 71
     Tags_files project: Save tags/resources in db
-    
+
 ### Day 72
     Guessing Game - Build api with flask / backend
-    
+
 ### Day 73
     Guessing Game - Tests API
-    
+
 ### Day 74
     Bites 101 of Pybites - f-strings and a simple if/else
-    Bites 102 of Pybites - Infinite loop, input, continue and break 
-    Bites 103 of Pybites - Loop through a dictionary and pluralise a word 
-    Bites 104 of Pybites - Split and join  
+    Bites 102 of Pybites - Infinite loop, input, continue and break
+    Bites 103 of Pybites - Loop through a dictionary and pluralise a word
+    Bites 104 of Pybites - Split and join
     Bites 105 of PyBites - Slice and dice
-    Bites 106 of PyBites - Strip out vowels and count the number of replacements 
-    Bites 107 of PyBites - Filter numbers with a list comprehension 
-    Bites 108 of PyBites - Loop over a dict of namedtuples calculating a total score 
-    Bites 109 of PyBites - Workout dict lookups and raising an exception 
-    Bites 110 of PyBites - Type conversion and exception handling  
-    
-    
+    Bites 106 of PyBites - Strip out vowels and count the number of replacements
+    Bites 107 of PyBites - Filter numbers with a list comprehension
+    Bites 108 of PyBites - Loop over a dict of namedtuples calculating a total score
+    Bites 109 of PyBites - Workout dict lookups and raising an exception
+    Bites 110 of PyBites - Type conversion and exception handling
+
+### Day 75
+    Python jumpstart 10 - Movie Service
+
 ## Useful links
 [http://nullege.com](http://nullege.com)
 
