@@ -331,6 +331,8 @@
 
 ### Day 75
     Python jumpstart 10 - Movie Service
+    CheckIO
+        - Bird Language
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
