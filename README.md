@@ -333,6 +333,7 @@
     Python jumpstart 10 - Movie Service
     CheckIO
         - Bird Language
+        - Rotate Hole
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
