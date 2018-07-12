@@ -350,6 +350,7 @@
 ### Day 81
     Bites 15 of PyBites - Enumerate 2 sequences
     Bites 16 of PyBites - Special PyBites date generator
+    Bites 19 of PyBites - Write a simple property 
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
