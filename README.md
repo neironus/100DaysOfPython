@@ -352,7 +352,10 @@
     Bites 16 of PyBites - Special PyBites date generator
     Bites 19 of PyBites - Write a simple property
     Bites 29 of PyBites - Martin's IQ test
-    Bites 32 of PyBites - Don't let mutability fool you 
+    Bites 32 of PyBites - Don't let mutability fool you
+
+### Day 82
+    Bites 37 oy PyBites - Rewrite a for loop using recursion
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
