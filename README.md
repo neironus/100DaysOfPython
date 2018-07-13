@@ -356,6 +356,7 @@
 
 ### Day 82
     Bites 37 oy PyBites - Rewrite a for loop using recursion
+    Bites 38 oy PyBites - Using ElementTree to parse XML
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
