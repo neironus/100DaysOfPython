@@ -1,6 +1,6 @@
 import pytest
 
-from queu import queue
+from queue import queue
 
 q1 = queue(5)
 q2 = queue(3)
