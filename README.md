@@ -362,6 +362,7 @@
     Bites 45 of PyBites - Keep a queue of last n items
     Bites 46 of PyBites - You are a programmer! Code Fizz Buzz
     Bites 54 of PyBites - Nicer formatting of a poem or text
+    Bites 55 of PyBites - Get the latest game releases from Steam's RSS feed
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
