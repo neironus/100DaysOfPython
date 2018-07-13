@@ -363,6 +363,7 @@
     Bites 46 of PyBites - You are a programmer! Code Fizz Buzz
     Bites 54 of PyBites - Nicer formatting of a poem or text
     Bites 55 of PyBites - Get the latest game releases from Steam's RSS feed
+    Bites 56 of PyBites - Add a command line interface to our BMI calculator (required=True still listed on optional)
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
