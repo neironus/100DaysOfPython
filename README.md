@@ -361,6 +361,7 @@
     Bites 44 of PyBites - License key generator
     Bites 45 of PyBites - Keep a queue of last n items
     Bites 46 of PyBites - You are a programmer! Code Fizz Buzz
+    Bites 54 of PyBites - Nicer formatting of a poem or text
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
