@@ -355,8 +355,9 @@
     Bites 32 of PyBites - Don't let mutability fool you
 
 ### Day 82
-    Bites 37 oy PyBites - Rewrite a for loop using recursion
-    Bites 38 oy PyBites - Using ElementTree to parse XML
+    Bites 37 of PyBites - Rewrite a for loop using recursion
+    Bites 38 of PyBites - Using ElementTree to parse XML
+    Bites 43 of PyBites - Force keyword arguments
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
