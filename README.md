@@ -358,6 +358,7 @@
     Bites 37 of PyBites - Rewrite a for loop using recursion
     Bites 38 of PyBites - Using ElementTree to parse XML
     Bites 43 of PyBites - Force keyword arguments
+    Bites 44 of PyBites - License key generator
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
