@@ -359,6 +359,7 @@
     Bites 38 of PyBites - Using ElementTree to parse XML
     Bites 43 of PyBites - Force keyword arguments
     Bites 44 of PyBites - License key generator
+    Bites 45 of PyBites - Keep a queue of last n items 
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
