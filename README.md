@@ -366,7 +366,8 @@
     Bites 56 of PyBites - Add a command line interface to our BMI calculator (required=True still listed on optional)
 
 ### Day 83
-    Bites 4 of PyBites - Top 10 PyBites tags 
+    Bites 4 of PyBites - Top 10 PyBites tags
+    Bites 6 of PyBites - PyBites Die Hard
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
