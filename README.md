@@ -368,6 +368,7 @@
 ### Day 83
     Bites 4 of PyBites - Top 10 PyBites tags
     Bites 6 of PyBites - PyBites Die Hard
+    Bites 9 of PyBites - Palindromes
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
