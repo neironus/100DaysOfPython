@@ -369,7 +369,10 @@
     Bites 4 of PyBites - Top 10 PyBites tags
     Bites 6 of PyBites - PyBites Die Hard
     Bites 9 of PyBites - Palindromes
+    
+### Day 84
     Bites 10 of PyBites - Practice exceptions 
+    PAS
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
