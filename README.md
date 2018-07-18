@@ -380,6 +380,7 @@
     Bites 13 of PyBites - Convert dict to namedtuple/json
     Bites 14 of PyBites - Generate a table of n sequences
     Bites 18 of PyBites - Find the most common word
+    Bites 20 of PyBites - Write a context manager
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
