@@ -371,8 +371,11 @@
     Bites 9 of PyBites - Palindromes
     
 ### Day 84
-    Bites 10 of PyBites - Practice exceptions 
+    Bites 10 of PyBites - Practice exceptions
     PAS
+    
+### Day 85
+    Bites 11 of PyBites - Enrich a class with dunder methods 
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
