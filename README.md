@@ -379,6 +379,7 @@
     Bites 12 of PyBites - Write a user validation function
     Bites 13 of PyBites - Convert dict to namedtuple/json
     Bites 14 of PyBites - Generate a table of n sequences
+    Bites 18 of PyBites - Find the most common word
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
