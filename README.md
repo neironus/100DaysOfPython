@@ -383,6 +383,7 @@
     Bites 20 of PyBites - Write a context manager
     Bites 23 of PyBites - Find words that are > 95% similar
     Bites 24 of PyBites - ABC's and class inheritance
+    Bites 25 of PyBites - No promo twice, keep state in a class 
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
