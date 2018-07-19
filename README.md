@@ -369,11 +369,11 @@
     Bites 4 of PyBites - Top 10 PyBites tags
     Bites 6 of PyBites - PyBites Die Hard
     Bites 9 of PyBites - Palindromes
-    
+
 ### Day 84
     Bites 10 of PyBites - Practice exceptions
     PAS
-    
+
 ### Day 85
     Bites 11 of PyBites - Enrich a class with dunder methods
     Bites 12 of PyBites - Write a user validation function
@@ -383,7 +383,10 @@
     Bites 20 of PyBites - Write a context manager
     Bites 23 of PyBites - Find words that are > 95% similar
     Bites 24 of PyBites - ABC's and class inheritance
-    Bites 25 of PyBites - No promo twice, keep state in a class 
+    Bites 25 of PyBites - No promo twice, keep state in a class
+
+### Day 86
+    PAS
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
