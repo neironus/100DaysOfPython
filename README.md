@@ -390,6 +390,7 @@
     
 ### Day 87
     Bites 28 of PyBites - Converting date strings to datetimes
+    Bites 30 of PyBites - Movie data analysis
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
