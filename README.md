@@ -387,6 +387,9 @@
 
 ### Day 86
     PAS
+    
+### Day 87
+    Bites 28 of PyBites - Converting date strings to datetimes
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
