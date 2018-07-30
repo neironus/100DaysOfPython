@@ -398,6 +398,8 @@
 ### Day 89
     Install python 3.7
     Bites 33 of PyBites - Transpose a data structure
+    Bites 34 of PyBites - Building a Karma app - implement the User class
+
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
