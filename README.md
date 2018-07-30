@@ -399,6 +399,7 @@
     Install python 3.7
     Bites 33 of PyBites - Transpose a data structure
     Bites 34 of PyBites - Building a Karma app - implement the User class
+    Bites 35 of PyBites - Having fun with heapq 
 
 
 ## Useful links
