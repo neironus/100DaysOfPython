@@ -394,6 +394,10 @@
 
 ### Day 88
     PAS
+    
+### Day 89
+    Install python 3.7
+    Bites 33 of PyBites - Transpose a data structure
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
