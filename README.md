@@ -120,7 +120,7 @@
     Lambda, List Comprehensions
 
 ### Day 26
-    Bites 21 of PyBites
+    Bite 21 of PyBites
     Data Structure
     Generators
     Refactor BattleShip
@@ -149,18 +149,18 @@
     Articles
 
 ### Day 33
-    Bites 5 of PyBites - List Comprehensions
-    Bites 26 of PyBites - Dictionary comprehension
+    Bite 5 of PyBites - List Comprehensions
+    Bite 26 of PyBites - Dictionary comprehension
     Challenges 11 of PyBites - Begin dictonary use
     Videos about Itertools (cycle, product, combinations and permurations)
     Traffic lights using Itertools
-    Bites 64 of PyBites - itertools.zip_longest
-    Bites 17 of PyBites - iterools.permutations/combinations
-    Bites 65 of PyBites - iterools.permutations/generators/set
+    Bite 64 of PyBites - itertools.zip_longest
+    Bite 17 of PyBites - iterools.permutations/combinations
+    Bite 65 of PyBites - iterools.permutations/generators/set
 
 ### Day 34
     Decorator
-    Bites 22 of PyBites - Decorator with arguments
+    Bite 22 of PyBites - Decorator with arguments
 
 ### Day 35
     Pep8 - Style Guide
@@ -176,7 +176,7 @@
 
 ### Day 38
     Regex
-    Bites 2 of PyBites - Regex
+    Bite 2 of PyBites - Regex
     Challenges 42 of PyBites - Regex
 
 ### Day 39
@@ -318,16 +318,16 @@
     Guessing Game - Tests API
 
 ### Day 74
-    Bites 101 of Pybites - f-strings and a simple if/else
-    Bites 102 of Pybites - Infinite loop, input, continue and break
-    Bites 103 of Pybites - Loop through a dictionary and pluralise a word
-    Bites 104 of Pybites - Split and join
-    Bites 105 of PyBites - Slice and dice
-    Bites 106 of PyBites - Strip out vowels and count the number of replacements
-    Bites 107 of PyBites - Filter numbers with a list comprehension
-    Bites 108 of PyBites - Loop over a dict of namedtuples calculating a total score
-    Bites 109 of PyBites - Workout dict lookups and raising an exception
-    Bites 110 of PyBites - Type conversion and exception handling
+    Bite 101 of Pybites - f-strings and a simple if/else
+    Bite 102 of Pybites - Infinite loop, input, continue and break
+    Bite 103 of Pybites - Loop through a dictionary and pluralise a word
+    Bite 104 of Pybites - Split and join
+    Bite 105 of PyBites - Slice and dice
+    Bite 106 of PyBites - Strip out vowels and count the number of replacements
+    Bite 107 of PyBites - Filter numbers with a list comprehension
+    Bite 108 of PyBites - Loop over a dict of namedtuples calculating a total score
+    Bite 109 of PyBites - Workout dict lookups and raising an exception
+    Bite 110 of PyBites - Type conversion and exception handling
 
 ### Day 75
     Python jumpstart 10 - Movie Service
@@ -348,58 +348,58 @@
     PAS
 
 ### Day 81
-    Bites 15 of PyBites - Enumerate 2 sequences
-    Bites 16 of PyBites - Special PyBites date generator
-    Bites 19 of PyBites - Write a simple property
-    Bites 29 of PyBites - Martin's IQ test
-    Bites 32 of PyBites - Don't let mutability fool you
+    Bite 15 of PyBites - Enumerate 2 sequences
+    Bite 16 of PyBites - Special PyBites date generator
+    Bite 19 of PyBites - Write a simple property
+    Bite 29 of PyBites - Martin's IQ test
+    Bite 32 of PyBites - Don't let mutability fool you
 
 ### Day 82
-    Bites 37 of PyBites - Rewrite a for loop using recursion
-    Bites 38 of PyBites - Using ElementTree to parse XML
-    Bites 43 of PyBites - Force keyword arguments
-    Bites 44 of PyBites - License key generator
-    Bites 45 of PyBites - Keep a queue of last n items
-    Bites 46 of PyBites - You are a programmer! Code Fizz Buzz
-    Bites 54 of PyBites - Nicer formatting of a poem or text
-    Bites 55 of PyBites - Get the latest game releases from Steam's RSS feed
-    Bites 56 of PyBites - Add a command line interface to our BMI calculator (required=True still listed on optional)
+    Bite 37 of PyBites - Rewrite a for loop using recursion
+    Bite 38 of PyBites - Using ElementTree to parse XML
+    Bite 43 of PyBites - Force keyword arguments
+    Bite 44 of PyBites - License key generator
+    Bite 45 of PyBites - Keep a queue of last n items
+    Bite 46 of PyBites - You are a programmer! Code Fizz Buzz
+    Bite 54 of PyBites - Nicer formatting of a poem or text
+    Bite 55 of PyBites - Get the latest game releases from Steam's RSS feed
+    Bite 56 of PyBites - Add a command line interface to our BMI calculator (required=True still listed on optional)
 
 ### Day 83
-    Bites 4 of PyBites - Top 10 PyBites tags
-    Bites 6 of PyBites - PyBites Die Hard
-    Bites 9 of PyBites - Palindromes
+    Bite 4 of PyBites - Top 10 PyBites tags
+    Bite 6 of PyBites - PyBites Die Hard
+    Bite 9 of PyBites - Palindromes
 
 ### Day 84
-    Bites 10 of PyBites - Practice exceptions
+    Bite 10 of PyBites - Practice exceptions
     PAS
 
 ### Day 85
-    Bites 11 of PyBites - Enrich a class with dunder methods
-    Bites 12 of PyBites - Write a user validation function
-    Bites 13 of PyBites - Convert dict to namedtuple/json
-    Bites 14 of PyBites - Generate a table of n sequences
-    Bites 18 of PyBites - Find the most common word
-    Bites 20 of PyBites - Write a context manager
-    Bites 23 of PyBites - Find words that are > 95% similar
-    Bites 24 of PyBites - ABC's and class inheritance
-    Bites 25 of PyBites - No promo twice, keep state in a class
+    Bite 11 of PyBites - Enrich a class with dunder methods
+    Bite 12 of PyBites - Write a user validation function
+    Bite 13 of PyBites - Convert dict to namedtuple/json
+    Bite 14 of PyBites - Generate a table of n sequences
+    Bite 18 of PyBites - Find the most common word
+    Bite 20 of PyBites - Write a context manager
+    Bite 23 of PyBites - Find words that are > 95% similar
+    Bite 24 of PyBites - ABC's and class inheritance
+    Bite 25 of PyBites - No promo twice, keep state in a class
 
 ### Day 86
     PAS
 
 ### Day 87
-    Bites 28 of PyBites - Converting date strings to datetimes
-    Bites 30 of PyBites - Movie data analysis
+    Bite 28 of PyBites - Converting date strings to datetimes
+    Bite 30 of PyBites - Movie data analysis
 
 ### Day 88
     PAS
     
 ### Day 89
     Install python 3.7
-    Bites 33 of PyBites - Transpose a data structure
-    Bites 34 of PyBites - Building a Karma app - implement the User class
-    Bites 35 of PyBites - Having fun with heapq 
+    Bite 33 of PyBites - Transpose a data structure
+    Bite 34 of PyBites - Building a Karma app - implement the User class
+    Bite 35 of PyBites - Having fun with heapq 
 
 
 ## Useful links
