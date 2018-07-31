@@ -394,14 +394,16 @@
 
 ### Day 88
     PAS
-    
+
 ### Day 89
     Install python 3.7
     Bite 33 of PyBites - Transpose a data structure
     Bite 34 of PyBites - Building a Karma app - implement the User class
     Bite 35 of PyBites - Having fun with heapq
-    Bite 36 of PyBites - Having fun with *args and **kwargs 
+    Bite 36 of PyBites - Having fun with *args and **kwargs
 
+### Day 90
+    List generator for dice passphrases
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
