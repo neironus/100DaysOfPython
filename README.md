@@ -413,6 +413,9 @@
 
 ### Day 93
     CodeChalleng.es - PCC51
+    
+### Day 94
+    App: Word finder
 
 ## Useful links
 [http://nullege.com](http://nullege.com)
